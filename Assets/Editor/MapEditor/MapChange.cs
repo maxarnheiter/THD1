@@ -17,8 +17,8 @@ public class MapChange
 	}
 	
 	[XmlIgnore]
-	public string ObjectName {
-		get { return this._mapObject._name; }
+	public int ObjectId {
+		get { return this._mapObject._id; }
 	}
 	
 	[XmlIgnore]

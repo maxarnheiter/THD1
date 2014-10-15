@@ -10,18 +10,6 @@ public static class MapEditor
 {
 	public static Map map;
 
-	public static List<GameObject> instances {
-		get {
-			return ResourceManager.instances;
-		}
-	}
-
-	public static List<GameObject> prefabs {
-		get {
-			return ResourceManager.prefabs;
-		}
-	}
-
 	static void Load(string path) {
 		XmlSerializer serializer =  new XmlSerializer(typeof(Map));
 		using(FileStream stream = new FileStream(path, FileMode.Open))

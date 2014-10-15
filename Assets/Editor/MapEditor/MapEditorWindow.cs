@@ -28,6 +28,9 @@ public class MapEditorWindow : EditorWindow
 		if (MapEditor.map == null)
 			OnDisplayNoMap ();
 
+		if (ResourceManager.Prefabs == null)
+			OnDisplayNoPrefabs ();
+
 
 	}
 	
@@ -55,6 +58,22 @@ public class MapEditorWindow : EditorWindow
 		}
 		
 		EditorGUILayout.EndHorizontal ();
+
+		EditorGUILayout.Space ();
+	}
+
+	void OnDisplayNoPrefabs()
+	{
+
+		EditorGUILayout.LabelField ("There is currently no prefabs to be found. ");
+
+		if (GUILayout.Button ("Load Prefabs")) {
+			if(!ResourceManager.LoadPrefabs())
+				Debug.Log ("Could not load prefabs.");
+		}
+						
+
+		EditorGUILayout.Space ();
 	}
 }
 

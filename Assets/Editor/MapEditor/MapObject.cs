@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 public class MapObject
 {
-	[XmlAttribute("name")]	public string _name;
+	[XmlAttribute("id")]	public int _id;
 	
 	[XmlAttribute("pos")]	public Vector3 _pos;
 	
-	public MapObject(string name, Vector3 pos) {
-		this._name = name;
+	public MapObject(int id, Vector3 pos) {
+		this._id = id;
 		this._pos = pos;
 	}
 }
