@@ -10,9 +10,5 @@ public class Height : MonoBehaviour {
 	void Update () {
 	
 	}
-
-	void SetHeight()
-	{
-
-	}
+	
 }

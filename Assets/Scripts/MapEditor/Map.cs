@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public class Map : MonoBehaviour
 {
-	[XmlAttribute("mapObjects")] 		List<MapObject> _mapObjects;
+	[XmlAttribute("mapObjects")] 	List<MapObject> _mapObjects;
 	
-	[XmlAttribute("pastChanges")]		Stack<MapChange> _pastChanges;
+	[XmlAttribute("pastChanges")]	Stack<MapChange> _pastChanges;
 	
 	[XmlAttribute("futureChanges")] 	Stack<MapChange> _futureChanges;
 }
