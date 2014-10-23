@@ -17,34 +17,18 @@ public class MapChange
 	}
 	
 	[XmlIgnore]
-	public int ObjectId {
-		get { return this._mapObject._id; }
+	public bool IsAdd {
+	get { return this._isAdd; }
 	}
 	
 	[XmlIgnore]
-	public Vector3 ObjectPosition {
-		get { return this._mapObject._pos; }
+	public int ID {
+	get { return this._mapObject.ID; }
 	}
 	
-	public void Trigger() {
-		if (this._isAdd)
-			Add ();
-		else
-			Remove ();
+	[XmlIgnore]
+	public Vector3 Position {
+		get { return this._mapObject.Position; }
 	}
 	
-	public void Undo() {
-		if (this._isAdd)
-			Remove ();
-		else
-			Add ();
-	}
-	
-	void Add() {
-		MapEditor.OnAdd (this);
-	}
-	
-	void Remove() {
-		MapEditor.OnRemove (this);
-	}
 }

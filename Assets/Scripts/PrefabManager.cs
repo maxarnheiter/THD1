@@ -21,9 +21,6 @@ public static class PrefabManager
 		}
 		
 		Prefabs = new Dictionary<int, GameObject>();
-		
-		//foreach(Prefab prefab in prefabs)
-		//	Prefabs.Add (prefab.id, prefab.gameObject);
 
 		Prefabs = (prefabs as IEnumerable<Prefab>).ToDictionary (p => p.id, p => p.gameObject);
 

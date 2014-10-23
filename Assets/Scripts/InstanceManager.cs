@@ -4,5 +4,6 @@ using System.Collections.Generic;
 
 public static class InstanceManager {
 
-	public static Dictionary<Vector3, GameObject> Instances;
+	public static Dictionary<int, Transform> Instances;
+	
 }
