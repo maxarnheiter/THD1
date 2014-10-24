@@ -51,7 +51,7 @@ public class MapEditorWindow : EditorWindow
 				
 				if(currentMousePos != lastMousePos) {
 					lastMousePos = currentMousePos;
-					MapEditor.MouseMove(currentMousePos);
+					MapEditor.Position = currentMousePos;
 				}
 			           
 			break;
@@ -63,8 +63,6 @@ public class MapEditorWindow : EditorWindow
 				break;
 			}
 		}
-		
-		MapEditor.DrawPreview();
 	}
 	
 }
