@@ -1,38 +1,92 @@
 ﻿using UnityEngine;
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 
 public static class PrefabManager 
 {
-	public static Dictionary<int, GameObject> Prefabs;
+	static int _count;
+	public static int count {
+		get { return _count; }
+	}
 
-	public static bool LoadPrefabs()
-	{
-		Prefab[] prefabs = Resources.FindObjectsOfTypeAll<Prefab> ();
-		
-		if(prefabs.Count() == 0) {
+	static bool _hasPrefabs;
+	public static bool hasPrefabs {
+		get { return _hasPrefabs; }
+	}
+
+	static Dictionary<int, GameObject> _prefabs;
+
+	public static Dictionary<int, GameObject> prefabs {
+		get { return _prefabs; }
+		set {
+			if (_prefabs == null)
+				 _prefabs = new Dictionary<int, GameObject> ();
+			_prefabs = value; 
+			}
+	}
+
+	static Dictionary<int, Texture2D> _prefabTextures;
+
+	public static Dictionary<int, Texture2D> prefabTextures {
+		get { return _prefabTextures; }
+	}
+
+	public static bool LoadPrefabs() {
+		Prefab[] prefabArray = Resources.FindObjectsOfTypeAll<Prefab> ();
+
+		if(prefabArray.Length == 0) {
 			Debug.Log ("Error: There are no prefabs to load");
 			return false;
 		}
 		
-		if(HasDuplicates(prefabs)) {
+		if(HasDuplicates(prefabArray)) {
 			Debug.Log ("Error: There are prefabs with duplicate ids.");
 			return false;
 		}
-		
-		Prefabs = new Dictionary<int, GameObject>();
 
-		Prefabs = (prefabs as IEnumerable<Prefab>).ToDictionary (p => p.id, p => p.gameObject);
+		prefabs = (prefabArray as IEnumerable<Prefab>).ToDictionary (p => p.id, p => p.gameObject);
+		_hasPrefabs = true;
+		_count = prefabs.Count();
+		
+		CreatePreviewTextures();
 
 		return true;
 	}
 	
 
-	static bool HasDuplicates(Prefab[] prefabs)
+	static bool HasDuplicates(Prefab[] prefabArray)
 	{
-		if (prefabs.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0)
+		if (prefabArray.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0)
 			return true;
 		
 		return false;
+	}
+
+	static void CreatePreviewTextures() {
+
+		_prefabTextures = new Dictionary<int, Texture2D> ();
+
+		foreach (var prefab in _prefabs) {
+
+			AddPreviewTexture (prefab);
+		}
+	}
+
+	static void AddPreviewTexture(KeyValuePair<int,GameObject> prefab)
+	{
+		if (prefab.Value.GetComponent<SpriteRenderer>() == null)
+			return;
+		else
+		{
+			var sprite = prefab.Value.GetComponent<SpriteRenderer>().sprite;
+			var texture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);		
+			
+			texture.SetPixels (sprite.texture.GetPixels((int)sprite.rect.x, (int)sprite.rect.y, (int)sprite.rect.width, (int)sprite.rect.height));
+			texture.Apply();
+
+			prefabTextures.Add(prefab.Key, texture);
+		}
+																			
 	}
 }
