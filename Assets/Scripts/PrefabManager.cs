@@ -5,6 +5,15 @@ using System.Collections.Generic;
 
 public static class PrefabManager 
 {
+	static string[] _prefabFolders = 	{
+										"Prefabs/Grounds",
+										"Prefabs/Player"
+										};
+										
+	public static string[] prefabFolders {
+		get { return _prefabFolders; }
+	}
+
 	static int _count;
 	public static int count {
 		get { return _count; }
@@ -33,19 +42,24 @@ public static class PrefabManager
 	}
 
 	public static bool LoadPrefabs() {
-		Prefab[] prefabArray = Resources.FindObjectsOfTypeAll<Prefab> ();
+	
+		List<Prefab> prefabList=  new List<Prefab>();
+		
+		foreach(var folder in prefabFolders) {
+			prefabList.AddRange(Resources.LoadAll (folder, typeof(Prefab)).Cast<Prefab>());
+		}
 
-		if(prefabArray.Length == 0) {
+		if(prefabList.Count == 0) {
 			Debug.Log ("Error: There are no prefabs to load");
 			return false;
 		}
 		
-		if(HasDuplicates(prefabArray)) {
+		if(HasDuplicates(prefabList)) {
 			Debug.Log ("Error: There are prefabs with duplicate ids.");
 			return false;
 		}
 
-		prefabs = (prefabArray as IEnumerable<Prefab>).ToDictionary (p => p.id, p => p.gameObject);
+		prefabs = prefabList.ToDictionary(p => p.id, p => p.gameObject);
 		_hasPrefabs = true;
 		_count = prefabs.Count();
 		
@@ -55,9 +69,9 @@ public static class PrefabManager
 	}
 	
 
-	static bool HasDuplicates(Prefab[] prefabArray)
+	static bool HasDuplicates(List<Prefab> prefabList)
 	{
-		if (prefabArray.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0)
+		if (prefabList.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0)
 			return true;
 		
 		return false;
