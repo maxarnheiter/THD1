@@ -5,6 +5,25 @@ using System.Collections.Generic;
 
 public static class PrefabManager 
 {
+	static int? _current;
+	public static int? current {
+		get { return _current; }
+		set { 	_current =  value; 
+				_currentPrefab = GetPrefabById((int)_current);
+				_currentTexture = GetTextureById((int)_current);
+		}
+	}
+	
+	static GameObject _currentPrefab;
+	public static GameObject currentPrefab {
+		get { return _currentPrefab; }
+	}
+	
+	static Texture2D _currentTexture;
+	public static Texture2D currentTexture {
+		get { return _currentTexture; }
+	}
+
 	static string[] _prefabFolders = 	{
 										"Prefabs/Grounds",
 										"Prefabs/Player"
@@ -97,10 +116,22 @@ public static class PrefabManager
 			var texture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);		
 			
 			texture.SetPixels (sprite.texture.GetPixels((int)sprite.rect.x, (int)sprite.rect.y, (int)sprite.rect.width, (int)sprite.rect.height));
+			texture.hideFlags = HideFlags.DontSave;
 			texture.Apply();
 
 			prefabTextures.Add(prefab.Key, texture);
-		}
-																			
+		}																		
+	}
+	
+	public static GameObject GetPrefabById(int id) {
+		GameObject prefab = null;
+		prefab = _prefabs.Where(p => p.Key == id).FirstOrDefault().Value;
+		return prefab;
+	}
+	
+	public static Texture2D GetTextureById(int id) {
+		Texture2D texture = null;
+		texture = _prefabTextures.Where (p => p.Key == id).FirstOrDefault().Value;
+		return texture;
 	}
 }

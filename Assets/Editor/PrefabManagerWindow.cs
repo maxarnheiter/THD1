@@ -26,7 +26,6 @@ public class PrefabManagerWindow : EditorWindow {
 			GUI.enabled = false;
 		if(GUILayout.Button ("Load Prefabs", GUILayout.Width (100f)))
 				PrefabManager.LoadPrefabs();
-
 		GUI.enabled = true;
 
 		GUILayout.Label ("There are currently " + PrefabManager.count + " prefabs loaded.");
@@ -48,10 +47,17 @@ public class PrefabManagerWindow : EditorWindow {
 					GUILayout.BeginHorizontal();
 				}
 				
-				//Display button for prefab and update width
+				//subtract button width from total width
 				width -= (prefab.Value.width + (2 * previewPadding));
-				GUILayout.Button (prefab.Value, GUILayout.Width (prefab.Value.width + previewPadding),
-				                 				GUILayout.Height (prefab.Value.height + previewPadding));
+				
+				if(prefab.Key == PrefabManager.current)
+					GUI.enabled = false;
+				
+				if(GUILayout.Button (prefab.Value, GUILayout.Width (prefab.Value.width + previewPadding),
+				                 				GUILayout.Height (prefab.Value.height + previewPadding)))
+				                 				PrefabManager.current = prefab.Key;
+				
+				GUI.enabled = true;
 				
 				//End Horizontal if we're on the last one
 				if(i == count)

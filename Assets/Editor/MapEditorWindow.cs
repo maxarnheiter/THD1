@@ -24,9 +24,13 @@ public class MapEditorWindow : EditorWindow
 	}
 	
 	void OnGUI() {
+	
+		EditorGUILayout.Space();
+		displayMapGUI();
 		
+		EditorGUILayout.Space();
+		displayMapToolsGUI();
 		
-
 	}
 	
 	void OnSceneGUI(SceneView sceneView) {
@@ -64,6 +68,83 @@ public class MapEditorWindow : EditorWindow
 				break;
 			}
 		}
+	}
+	
+	void displayMapGUI() {
+	
+		EditorGUILayout.Space ();
+		GUILayout.Label("Map Options: ");
+		GUILayout.BeginHorizontal();
+			displayMapOptions();
+		GUILayout.EndHorizontal();
+		
+		EditorGUILayout.Space ();
+		GUILayout.Label("Map Statistics: ");
+			displayMapStatistics();
+		
+
+		
+	}
+	
+	void displayMapOptions() {
+	
+		if(GUILayout.Button ("New", GUILayout.Width(100f))) {
+			MapEditor.CreateNewMap();
+		}
+		
+		if(GUILayout.Button ("Load", GUILayout.Width(100f))) {
+			string path = EditorUtility.OpenFilePanel("", "", ".xml");
+			if(path != "")
+				MapEditor.Load(path);
+		}
+		
+		if(!MapEditor.hasMap)
+		if(MapEditor.mapPath != "")
+			GUI.enabled = false;
+		if(GUILayout.Button ("Save", GUILayout.Width(100f))) {
+			MapEditor.Save();
+		}
+		GUI.enabled = true;
+		
+		if(!MapEditor.hasMap)
+			GUI.enabled = false;
+		if(GUILayout.Button ("Save As", GUILayout.Width(100f))) {
+			string path = EditorUtility.SaveFilePanel("", "", "", ".xml");
+			if(path != "")
+				MapEditor.SaveAs(path);
+		}
+		GUI.enabled = true;
+	}
+	
+	void displayMapStatistics() {
+			
+		if(!MapEditor.hasMap)
+			GUI.enabled = false;
+				
+		GUILayout.Label ("Current Map Path: " + MapEditor.mapPath);	
+		
+		GUILayout.BeginHorizontal();
+		
+		GUILayout.Label ("Total Map Objects: " + MapEditor.mapObjects);
+		GUILayout.Label ("Total Map Changes: " + MapEditor.mapChanges);
+		
+		
+		GUILayout.EndHorizontal();
+		
+		GUILayout.BeginHorizontal();
+		
+		GUILayout.Label ("Past Changes: " + MapEditor.pastChanges);
+		GUILayout.Label ("Future Changes: " + MapEditor.futureChanges);
+		
+		GUILayout.EndHorizontal();
+		
+		GUI.enabled = true;
+	}
+	
+	void displayMapToolsGUI() {
+	
+	
+	
 	}
 	
 }

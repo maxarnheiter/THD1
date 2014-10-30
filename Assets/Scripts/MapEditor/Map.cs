@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Map
+public class Map : MonoBehaviour
 {
 	[XmlAttribute("mapObjects")] 		List<MapObject> _mapObjects;
 	

@@ -9,7 +9,45 @@ using System.Collections.Generic;
 
 public static class MapEditor
 {
-	public static Map Map;
+	public static Map Map { 
+		get { return _map; }
+	}
+	
+	static Map _map;
+	
+	static string _mapPath;
+	public static string mapPath {
+		get { return _mapPath; }
+	}
+	
+	public static bool hasMap {
+		get {
+			if(_map != null)
+				return true;
+			else
+				return false;
+		}
+	}
+	
+	static int _mapObjects;
+	public static int mapObjects {
+		get { return _mapObjects; }
+	}
+	
+	static int _mapChanges;
+	public static int mapChanges {
+		get { return _mapChanges; }
+	}
+	
+	static int _pastChanges;
+	public static int pastChanges {
+		get {return _pastChanges; }
+	}
+	
+	static int _futureChanges;
+	public static int futureChanges {
+		get {return _futureChanges; }
+	}
 	
 	static ClickAction _action;
 	public static ClickAction Action {
@@ -92,6 +130,7 @@ public static class MapEditor
 		
 		_preview = new GameObject();
 		_preview.name = "Preview Object";
+		_preview.hideFlags = HideFlags.HideAndDontSave;
 		
 		_previewTexture = new Texture2D(1,1);
 		if(Action == ClickAction.Add)
@@ -122,8 +161,9 @@ public static class MapEditor
 		
 		if(!_preview)
 			CreatePreviewObject();
-		
+
 		_preview.transform.position = new Vector3(Position.x, Position.y, FloorHeight);
+		SceneView.RepaintAll();
 	}
 	
 	static void OnFloorChange() {
@@ -131,17 +171,59 @@ public static class MapEditor
 		if(_preview)
 			_previewRenderer.sortingLayerName = FloorOverlaySortingLayerName;
 	}
+	
+	public static void Load(string path) {
+		load(path);
+		_mapPath = path;
+	}
+	
+	public static void Save() {
+		save(_mapPath);
+	}
+	
+	public static void SaveAs(string path) {
+		save(path);
+		_mapPath = path;
+	}
+	
 
-	static void Load(string path) {
+	static void load(string path) {
 		XmlSerializer serializer =  new XmlSerializer(typeof(Map));
 		using(FileStream stream = new FileStream(path, FileMode.Open))
-			Map = serializer.Deserialize(stream) as Map;
+			_map = serializer.Deserialize(stream) as Map;
 	}
 
-	static void Save(string path) {
+	static void save(string path) {
 		XmlSerializer serializer = new XmlSerializer(typeof(Map));
 		using(FileStream stream = new FileStream(path, FileMode.Create))
 			serializer.Serialize(stream, Map);
+	}
+	
+	static void clear() {
+		
+		if(hasMap) {
+		
+		InstanceManager.Clear();
+		
+		_mapObjects = 0;
+		_mapChanges = 0;
+		_pastChanges = 0;
+		_futureChanges = 0;
+		_mapPath = "";
+		
+		GameObject.DestroyImmediate(_map.gameObject);
+		}
+	}
+	
+	public static void CreateNewMap() {
+	
+		clear();
+		
+		GameObject mapObject = new GameObject();
+		mapObject.name = "Map";
+		mapObject.transform.position = Vector3.zero;
+		_map = mapObject.AddComponent<Map>();
+		
 	}
 	
 }
