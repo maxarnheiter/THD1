@@ -1,27 +1,23 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Xml;
 using System.Xml.Serialization;
-using System.Collections;
-using System.Collections.Generic;
 
-public class MapObject
-{
-	[XmlAttribute("id")]	int _id;
+public class MapObject  {
+
+	public int id;
+	public float x;
+	public float y;
+	public float z;
 	
-	[XmlAttribute("pos")]	Vector3 _pos;
 	
-	public MapObject(int id, Vector3 pos) {
-		this._id = id;
-		this._pos = pos;
+	public MapObject() {}
+	
+	public MapObject(int ID, float X, float Y, float Z) {
+		this.id = ID;
+		this.x = X;
+		this.y = Y;
+		this.z = Z;
 	}
 	
-	[XmlIgnore]
-	public int ID { 
-	get { return this._id; }
-	}
-	
-	[XmlIgnore]
-	public Vector3 Position{
-	get { return this._pos; }
-	}
 }

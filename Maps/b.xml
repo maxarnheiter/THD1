@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<Map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <data>
+    <MapObject>
+      <id>0</id>
+      <x>0</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>0</id>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>0</id>
+      <x>1</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>0</id>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+  </data>
+</Map>

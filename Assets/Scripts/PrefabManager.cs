@@ -23,6 +23,22 @@ public static class PrefabManager
 	public static Texture2D currentTexture {
 		get { return _currentTexture; }
 	}
+	
+	public static int currentTextureWidth {
+		get {
+			if(currentTexture != null)
+				return currentTexture.width;
+			return 32;
+		}
+	}
+	
+	public static int currentTextureHeight {
+		get {
+			if(currentTexture != null)
+				return currentTexture.height;
+			return 32;
+		}
+	}
 
 	static string[] _prefabFolders = 	{
 										"Prefabs/Grounds",

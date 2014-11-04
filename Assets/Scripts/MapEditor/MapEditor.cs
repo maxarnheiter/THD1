@@ -9,170 +9,89 @@ using System.Collections.Generic;
 
 public static class MapEditor
 {
-	public static Map Map { 
-		get { return _map; }
-	}
-	
-	static Map _map;
-	
 	static string _mapPath;
 	public static string mapPath {
 		get { return _mapPath; }
 	}
 	
-	public static bool hasMap {
+	static GameObject _mapContainer;
+	public static GameObject mapContainer {
 		get {
-			if(_map != null)
-				return true;
-			else
-				return false;
+			if(_mapContainer == null) {
+				if(GameObject.Find("MapContainer") != null)
+					_mapContainer = GameObject.Find("MapContainer");
+				else {
+					_mapContainer = new GameObject();
+					_mapContainer.name = "MapContainer";
+					_mapContainer.transform.position = Vector3.zero;
+				}
+			}
+			return _mapContainer;
 		}
-	}
-	
-	static int _mapObjects;
-	public static int mapObjects {
-		get { return _mapObjects; }
-	}
-	
-	static int _mapChanges;
-	public static int mapChanges {
-		get { return _mapChanges; }
-	}
-	
-	static int _pastChanges;
-	public static int pastChanges {
-		get {return _pastChanges; }
-	}
-	
-	static int _futureChanges;
-	public static int futureChanges {
-		get {return _futureChanges; }
 	}
 	
 	static ClickAction _action;
-	public static ClickAction Action {
-		get { 
-			return _action; 
-		}
+	public static ClickAction action {
+		get { return _action; }
 		set {
 			_action = value;
-			OnActionChange();
+			MapEditorPreview.OnActionChanged();
 		}
 	}
 	
 	static Vector2 _position;
-	public static Vector2 Position {
-		get {
-			return _position;
-		}
+	public static Vector2 position {
+		get { return _position; }
 		set {
 			_position = value;
-			OnPositionChange();
+			MapEditorPreview.OnPositionChanged();
 		}
 	}
 	
-	static float _floor;
-	public static float Floor {
-		get {
-			return _floor;
-		}
+	static int _floor;
+	
+	public static int floor {
+		get { return _floor; }
 		set {
 			_floor = value;
-			OnFloorChange();
+			MapEditorPreview.OnFloorChanged();
 		}
 	}
 	
-	public static float FloorHeight {
-		get {
-			return (_floor * -1);
-		}
+	public static float floorHeight {
+		get { return (_floor * -1); }
 	}
-	
-	public static string FloorOverlaySortingLayerName {
-		get {
-			return ("Floor " + _floor + " Overlay");
-		}
-	}
-	
-	static float _previewTransparency = 0.5f;
-	
-	static Color _addColor = new Color(0f, 1f, 0f, _previewTransparency);
-	static Color _removeColor = new Color(1f, 0f, 0f, _previewTransparency);
-
-	
-	static int _prefabId;
-
-	static GameObject _preview;
-	static SpriteRenderer _previewRenderer;
-	static Sprite _previewSprite;
-	static Texture2D _previewTexture;
 	
 	public static void Click() {
 	
 		switch(_action) {
 		
 			case ClickAction.Add: {
-				//TODO add event
+				if(PrefabManager.current != null)
+					InstanceManager.Instantiate(	(int)PrefabManager.current, 
+													new Vector3(position.x, position.y, (float)(floorHeight)));
 				break;
 			}
 			
 			case ClickAction.Remove: {
-				//TODO remove event
+				//TODO
 				break;
 			}
 		}
 	}
 	
-	static void CreatePreviewObject() {
-	
-		while(GameObject.Find("Preview Object") != null)
-			Object.DestroyImmediate(GameObject.Find("Preview Object"));
+	public static void Clear() {
 		
-		_preview = new GameObject();
-		_preview.name = "Preview Object";
-		_preview.hideFlags = HideFlags.HideAndDontSave;
-		
-		_previewTexture = new Texture2D(1,1);
-		if(Action == ClickAction.Add)
-			_previewTexture.SetPixel(0,0, _addColor);
-		else
-			_previewTexture.SetPixel(0,0, _removeColor);
-		_previewTexture.Apply();
-		
-		_previewSprite = Sprite.Create(_previewTexture, new Rect(0,0,1,1), new Vector2(1,0), 1f);
-		
-		_previewRenderer = _preview.AddComponent<SpriteRenderer>();
-		_previewRenderer.sprite = _previewSprite;
-		_previewRenderer.sortingLayerName = FloorOverlaySortingLayerName;
+		InstanceManager.Clear();
 	}
 	
-	static void OnActionChange() {
-	
-		if(_preview) 
-			switch(_action) {
-				case ClickAction.Add : _previewRenderer.color = _addColor; 
-				break;
-				case ClickAction.Remove : _previewRenderer.color = _removeColor;
-				break;
-			}
-	}
-	
-	static void OnPositionChange() {
-		
-		if(!_preview)
-			CreatePreviewObject();
-
-		_preview.transform.position = new Vector3(Position.x, Position.y, FloorHeight);
-		SceneView.RepaintAll();
-	}
-	
-	static void OnFloorChange() {
-	
-		if(_preview)
-			_previewRenderer.sortingLayerName = FloorOverlaySortingLayerName;
+	public static void New() {
+		_mapPath = "";
+		Clear ();
 	}
 	
 	public static void Load(string path) {
+		Clear ();
 		load(path);
 		_mapPath = path;
 	}
@@ -185,47 +104,36 @@ public static class MapEditor
 		save(path);
 		_mapPath = path;
 	}
-	
 
 	static void load(string path) {
+	
+		Map map;
+		
 		XmlSerializer serializer =  new XmlSerializer(typeof(Map));
 		using(FileStream stream = new FileStream(path, FileMode.Open))
-			_map = serializer.Deserialize(stream) as Map;
+			map = serializer.Deserialize(stream) as Map;
+		
+		foreach(var mapObject in map.data) {
+			InstanceManager.Instantiate(mapObject.id, new Vector3(mapObject.x, mapObject.y, mapObject.z));
+		}
 	}
 
 	static void save(string path) {
+		
+		Map map = new Map();
+		
+		foreach(var instance in InstanceManager.instances) {
+			MapObject mapObject =  new MapObject(	instance.Value.gameObject.GetComponent<Prefab>().id, 
+													instance.Value.transform.position.x,
+													instance.Value.transform.position.y,
+													instance.Value.transform.position.z);
+			map.data.Add (mapObject);
+		}
+	
 		XmlSerializer serializer = new XmlSerializer(typeof(Map));
 		using(FileStream stream = new FileStream(path, FileMode.Create))
-			serializer.Serialize(stream, Map);
+			serializer.Serialize(stream, map);
 	}
-	
-	static void clear() {
-		
-		if(hasMap) {
-		
-		InstanceManager.Clear();
-		
-		_mapObjects = 0;
-		_mapChanges = 0;
-		_pastChanges = 0;
-		_futureChanges = 0;
-		_mapPath = "";
-		
-		GameObject.DestroyImmediate(_map.gameObject);
-		}
-	}
-	
-	public static void CreateNewMap() {
-	
-		clear();
-		
-		GameObject mapObject = new GameObject();
-		mapObject.name = "Map";
-		mapObject.transform.position = Vector3.zero;
-		_map = mapObject.AddComponent<Map>();
-		
-	}
-	
 }
 
 

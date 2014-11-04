@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Map : MonoBehaviour
+public class Map
 {
-	[XmlAttribute("mapObjects")] 		List<MapObject> _mapObjects;
+	public List<MapObject> data;
 	
-	[XmlAttribute("pastChanges")]		Stack<MapChange> _pastChanges;
+	public Map() {
+		data =  new List<MapObject>();
+	}
 	
-	[XmlAttribute("futureChanges")] 	Stack<MapChange> _futureChanges;
 }
