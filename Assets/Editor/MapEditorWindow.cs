@@ -8,40 +8,23 @@ public class MapEditorWindow : EditorWindow
 	
 	static Texture2D _pencilIcon;
 	static Texture2D pencilIcon {
-		get {
-			if( _pencilIcon == null)
-				_pencilIcon = Resources.Load("EditorSprites/pencil", typeof(Texture2D)) as Texture2D;
-			return _pencilIcon;
-		}
+		get { return _pencilIcon ?? (_pencilIcon = Resources.Load("EditorSprites/pencil") as Texture2D); }
 	}
 	
 	static Texture2D _eraserIcon;
 	static Texture2D eraserIcon {
-		get {
-			if(_eraserIcon == null)
-				_eraserIcon = Resources.Load("EditorSprites/eraser", typeof(Texture2D)) as Texture2D;
-			return _eraserIcon;
-		}
+		get { return _eraserIcon ?? (_eraserIcon = Resources.Load("EditorSprites/eraser") as Texture2D); }
 	}
 	
 	static Texture2D _upIcon;
 	static Texture2D upIcon {
-		get {
-			if(_upIcon == null)
-				_upIcon = Resources.Load("EditorSprites/up", typeof(Texture2D)) as Texture2D;
-			return _upIcon;
-		}
+		get { return _upIcon ?? (_upIcon = Resources.Load("EditorSprites/up") as Texture2D); }
 	}
 	
 	static Texture2D _downIcon;
 	static Texture2D downIcon {
-		get {
-			if(_downIcon == null)
-				_downIcon = Resources.Load("EditorSprites/down", typeof(Texture2D)) as Texture2D;
-			return _downIcon;
-		}
+		get { return _downIcon ?? (_downIcon = Resources.Load("EditorSprites/down") as Texture2D); }
 	}
-	
 
 	[MenuItem ("THD/Map Editor")]
 	static void Init () {
@@ -52,16 +35,6 @@ public class MapEditorWindow : EditorWindow
 		this.title = "Map Editor";
 		SceneView.onSceneGUIDelegate -= OnSceneGUI;
 		SceneView.onSceneGUIDelegate += OnSceneGUI;			//Listen to scene events
-	}
-	
-	void OnGUI() {
-	
-		EditorGUILayout.Space();
-		displayMapGUI();
-		
-		EditorGUILayout.Space();
-		displayMapToolsGUI();
-		
 	}
 	
 	void OnSceneGUI(SceneView sceneView) {
@@ -101,23 +74,25 @@ public class MapEditorWindow : EditorWindow
 		}
 	}
 	
-	void displayMapGUI() {
-	
-		EditorGUILayout.Space ();
+	void OnGUI() {
+		
+		EditorGUILayout.Space();
 		GUILayout.Label("Map Options: ");
 		GUILayout.BeginHorizontal();
-			displayMapOptions();
+			MapOptionsGUI();
 		GUILayout.EndHorizontal();
 		
 		EditorGUILayout.Space ();
 		GUILayout.Label("Map Statistics: ");
-			displayMapStatistics();
+			MapStatisticsGUI();
 		
+		EditorGUILayout.Space();
+			MapToolsGUI();
 	}
 	
-	void displayMapOptions() {
+	void MapOptionsGUI() {
 	
-//Clear
+	//Clear
 		if(!InstanceManager.hasInstances)
 			GUI.enabled = false;
 		if(GUILayout.Button ("Clear", GUILayout.Width (100f))) {
@@ -125,7 +100,7 @@ public class MapEditorWindow : EditorWindow
 		}
 		GUI.enabled = true;
 	
-//New
+	//New
 		if(InstanceManager.hasInstances)
 			GUI.enabled = false;
 		if(GUILayout.Button ("New", GUILayout.Width(100f))) {
@@ -133,7 +108,7 @@ public class MapEditorWindow : EditorWindow
 		}
 		GUI.enabled = true;
 		
-//Load
+	//Load
 		if(InstanceManager.hasInstances)
 			GUI.enabled = false;
 		if(GUILayout.Button ("Load", GUILayout.Width(100f))) {
@@ -143,7 +118,7 @@ public class MapEditorWindow : EditorWindow
 		}
 		GUI.enabled = true;
 		
-//Save
+	//Save
 		if(!InstanceManager.hasInstances || MapEditor.mapPath == "")
 			GUI.enabled = false;
 		if(GUILayout.Button ("Save", GUILayout.Width(100f))) {
@@ -151,7 +126,7 @@ public class MapEditorWindow : EditorWindow
 		}
 		GUI.enabled = true;
 	
-//Save As
+	//Save As
 		if(!InstanceManager.hasInstances)
 			GUI.enabled = false;
 		if(GUILayout.Button ("Save As", GUILayout.Width(100f))) {
@@ -162,55 +137,81 @@ public class MapEditorWindow : EditorWindow
 		GUI.enabled = true;
 	}
 	
-	void displayMapStatistics() {
+	void MapStatisticsGUI() {
 				
 		GUILayout.Label ("Current Map Path: " + MapEditor.mapPath);	
-		
 	}
 	
 	
-	void displayMapToolsGUI() {
-	
+	void MapToolsGUI() {
 	
 	EditorGUILayout.BeginHorizontal();
 	
-	if(MapEditor.action == ClickAction.Add)
-		GUI.enabled = false;
-	if(GUILayout.Button (pencilIcon, GUILayout.Width (50f))) {
-		MapEditor.action = ClickAction.Add;
-	}
-	GUI.enabled = true;
+		EditorGUILayout.BeginHorizontal(GUILayout.Width (150f));
+			ActionGUI();
+		EditorGUILayout.EndHorizontal();
+		
+		EditorGUILayout.BeginHorizontal(GUILayout.Width (150f));
+			FloorGUI();
+		EditorGUILayout.EndHorizontal();
+		
+		EditorGUILayout.BeginHorizontal(GUILayout.Width (150f));
+			PrefabGUI();
+		EditorGUILayout.EndHorizontal();
 	
-	if(MapEditor.action == ClickAction.Remove)
-		GUI.enabled = false;
-	if(GUILayout.Button (eraserIcon, GUILayout.Width (50f))) {
-		MapEditor.action = ClickAction.Remove;
-	}
-	GUI.enabled = true;
-	
-	EditorGUILayout.EndHorizontal();
-	
-	EditorGUILayout.Space();
-	
-	if(GUILayout.Button(upIcon, GUILayout.Width (40f))) {
-		MapEditor.floor++;
+	EditorGUILayout.EndHorizontal();	                
 	}
 	
-	GUILayout.Label ("Current floor: " + MapEditor.floor);
+	void ActionGUI() {
 	
-	if(GUILayout.Button(downIcon, GUILayout.Width (40f))) {
-		MapEditor.floor--;
+		EditorGUILayout.BeginVertical();
+		
+		if(MapEditor.action == ClickAction.Add)
+			GUI.enabled = false;
+		if(GUILayout.Button (pencilIcon, GUILayout.Width (50f))) {
+			MapEditor.action = ClickAction.Add;
+		}
+		GUI.enabled = true;
+		
+		if(MapEditor.action == ClickAction.Remove)
+			GUI.enabled = false;
+		if(GUILayout.Button (eraserIcon, GUILayout.Width (50f))) {
+			MapEditor.action = ClickAction.Remove;
+		}
+		GUI.enabled = true;
+		
+		EditorGUILayout.EndVertical();
 	}
 	
-	GUILayout.Label ("Current prefab id: " + PrefabManager.current);
+	void FloorGUI() {
 	
-	GUILayout.Button (	PrefabManager.currentTexture, 
-						GUILayout.Width (PrefabManager.currentTextureWidth), 
-		                GUILayout.Height(PrefabManager.currentTextureHeight));
-		                
+		EditorGUILayout.BeginVertical();
 	
+		if(GUILayout.Button(upIcon, GUILayout.Width (40f))) {
+			MapEditor.floor++;
+		}
+		
+		GUILayout.Label ("Current floor: " + MapEditor.floor);
+		
+		if(GUILayout.Button(downIcon, GUILayout.Width (40f))) {
+			MapEditor.floor--;
+		}
+		
+		EditorGUILayout.EndVertical();
 	}
 	
+	void PrefabGUI() {
+	
+		EditorGUILayout.BeginVertical();
+	
+		GUILayout.Label ("Current prefab id: " + PrefabManager.current);
+		
+		GUILayout.Button (	PrefabManager.currentTexture, 
+		                  GUILayout.Width (PrefabManager.currentTextureWidth), 
+		                  GUILayout.Height(PrefabManager.currentTextureHeight));
+		                  
+		EditorGUILayout.EndVertical();
+	}
 }
 
 
