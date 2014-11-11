@@ -21,12 +21,26 @@ public class PrefabManagerWindow : EditorWindow {
 	void OnGUI()
 	{
 		EditorGUILayout.Space ();
+		
+		EditorGUILayout.BeginHorizontal();
 
 		if (PrefabManager.hasPrefabs) 
 			GUI.enabled = false;
 		if(GUILayout.Button ("Load Prefabs", GUILayout.Width (100f)))
 				PrefabManager.LoadPrefabs();
 		GUI.enabled = true;
+		
+		if (!PrefabManager.hasPrefabs) 
+			GUI.enabled = false;
+		if(GUILayout.Button ("Reload Prefabs", GUILayout.Width (100f)))
+				PrefabManager.ReloadPrefabs();
+		GUI.enabled = true;
+		
+		EditorGUILayout.EndHorizontal();
+		
+		if(GUILayout.Button ("Get Next Prefab ID", GUILayout.Width (200f))) {
+			EditorUtility.DisplayDialog("Next Prefab ID:", PrefabManager.GetPrefabList().Count.ToString(), "OK");
+		}
 
 		GUILayout.Label ("There are currently " + PrefabManager.count + " prefabs loaded.");
 		

@@ -67,8 +67,6 @@ public class MapEditorWindow : EditorWindow
 			}
 			
 			case EventType.Repaint: {
-			
-				HeightManager.UpdateObjectsForCamera(sceneView.camera);
 				break;
 			}
 		}

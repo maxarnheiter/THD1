@@ -40,6 +40,7 @@ public static class MapEditorPreview {
 	}
 	
 	public static void OnActionChanged() {
+		DisableIfNoPrefab();
 		
 		if(_preview) 
 		switch(MapEditor.action) {
@@ -51,6 +52,7 @@ public static class MapEditorPreview {
 	}
 	
 	public static void OnPositionChanged() {
+		DisableIfNoPrefab();
 		
 		if(!_preview)
 			CreatePreviewObject();
@@ -60,9 +62,19 @@ public static class MapEditorPreview {
 	}
 	
 	public static void OnFloorChanged() {
+		DisableIfNoPrefab();
 		
 		if(_preview)
 			_previewRenderer.sortingLayerName = floorOverlaySortingLayerName;
+	}
+	
+	static void DisableIfNoPrefab() {
+		if(_previewRenderer != null) {
+			if(PrefabManager.current == null)
+				_previewRenderer.enabled = false;
+			else
+				_previewRenderer.enabled = true;
+		}
 	}
 	
 }

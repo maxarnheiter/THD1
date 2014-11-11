@@ -6,7 +6,7 @@ public class Prefab : MonoBehaviour {
 	public int id;
 
 	void Start () {
-	
+
 	}
 
 	void Update () {

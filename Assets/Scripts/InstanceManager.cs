@@ -8,10 +8,7 @@ public static class InstanceManager {
 	static Dictionary<int, Transform> _instances;
 	
 	public static Dictionary<int, Transform> instances {
-		get { 
-			if (_instances == null)
-					_instances =  new Dictionary<int, Transform>();
-		return _instances; }
+		get { return _instances ?? (_instances =  new Dictionary<int, Transform>()); }
 	}
 	
 	public static bool hasInstances {
@@ -34,6 +31,7 @@ public static class InstanceManager {
 	
 		var newObject = PrefabUtility.InstantiatePrefab(PrefabManager.GetPrefabById(prefabId)) as GameObject;
 		newObject.transform.position = position;
+		newObject.transform.Rotate(Config.DEFAULT_ROTATION);
 		newObject.transform.parent = MapEditor.mapContainer.transform;
 		_instances.Add(newObject.GetInstanceID(), newObject.transform);
 	}

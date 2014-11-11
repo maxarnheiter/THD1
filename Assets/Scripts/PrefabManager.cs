@@ -42,7 +42,9 @@ public static class PrefabManager
 
 	static string[] _prefabFolders = 	{
 										"Prefabs/Grounds",
-										"Prefabs/Player"
+										"Prefabs/Player", 
+										"Prefabs/Things", 
+										"Prefabs/Items"
 										};
 										
 	public static string[] prefabFolders {
@@ -75,14 +77,19 @@ public static class PrefabManager
 	public static Dictionary<int, Texture2D> prefabTextures {
 		get { return _prefabTextures; }
 	}
+	
+	static void Clear() {
+		prefabs =  new Dictionary<int, GameObject>();
+	}
+	
+	public static bool ReloadPrefabs() {
+		Clear ();
+		return LoadPrefabs();
+	}
 
 	public static bool LoadPrefabs() {
 	
-		List<Prefab> prefabList=  new List<Prefab>();
-		
-		foreach(var folder in prefabFolders) {
-			prefabList.AddRange(Resources.LoadAll (folder, typeof(Prefab)).Cast<Prefab>());
-		}
+		List<Prefab> prefabList = GetPrefabList();
 
 		if(prefabList.Count == 0) {
 			Debug.Log ("Error: There are no prefabs to load");
@@ -103,11 +110,23 @@ public static class PrefabManager
 		return true;
 	}
 	
+	public static List<Prefab> GetPrefabList() {
+		var prefabList = new List<Prefab>();
+	
+		foreach(var folder in prefabFolders) {
+			prefabList.AddRange(Resources.LoadAll (folder, typeof(Prefab)).Cast<Prefab>());
+		}
+		
+		return prefabList;
+	}
 
 	static bool HasDuplicates(List<Prefab> prefabList)
 	{
-		if (prefabList.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0)
+		if (prefabList.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0){
+			foreach( var grouping in prefabList.GroupBy (p => p.id).Where (g => g.Count() > 1))
+			{Debug.Log ("Duplicate id: " + grouping.Key);}
 			return true;
+		}
 		
 		return false;
 	}
