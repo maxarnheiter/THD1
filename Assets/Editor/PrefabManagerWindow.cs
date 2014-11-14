@@ -8,7 +8,6 @@ public class PrefabManagerWindow : EditorWindow {
 	static int minimumPreviewSize = 32;
 	static int previewPadding = 12;
 
-
 	[MenuItem ("THD/Prefab Window")]
 	static void Init () {
 		PrefabManagerWindow prefabManagerWindow = (PrefabManagerWindow)EditorWindow.GetWindow (typeof(PrefabManagerWindow));
@@ -16,10 +15,13 @@ public class PrefabManagerWindow : EditorWindow {
 
 	void OnEnable() {
 		this.title = "Prefab Editor";
+		PrefabManager.TryLoadOnce();
 	}
 	
 	void OnGUI()
 	{
+		PrefabManager.TryLoadOnce();
+	
 		EditorGUILayout.Space ();
 		
 		EditorGUILayout.BeginHorizontal();
@@ -27,19 +29,20 @@ public class PrefabManagerWindow : EditorWindow {
 		if (PrefabManager.hasPrefabs) 
 			GUI.enabled = false;
 		if(GUILayout.Button ("Load Prefabs", GUILayout.Width (100f)))
-				PrefabManager.LoadPrefabs();
+				PrefabManager.Load();
 		GUI.enabled = true;
 		
 		if (!PrefabManager.hasPrefabs) 
 			GUI.enabled = false;
 		if(GUILayout.Button ("Reload Prefabs", GUILayout.Width (100f)))
-				PrefabManager.ReloadPrefabs();
+				PrefabManager.Reload();
 		GUI.enabled = true;
 		
 		EditorGUILayout.EndHorizontal();
 		
 		if(GUILayout.Button ("Get Next Prefab ID", GUILayout.Width (200f))) {
-			EditorUtility.DisplayDialog("Next Prefab ID:", PrefabManager.GetPrefabList().Count.ToString(), "OK");
+			if(PrefabManager.hasPrefabs)
+				EditorUtility.DisplayDialog("Next Prefab ID:", PrefabManager.nextId.ToString(), "OK");
 		}
 
 		GUILayout.Label ("There are currently " + PrefabManager.count + " prefabs loaded.");
@@ -62,14 +65,18 @@ public class PrefabManagerWindow : EditorWindow {
 				}
 				
 				//subtract button width from total width
-				width -= (prefab.Value.width + (2 * previewPadding));
+				if(prefab.Value == null) // null check to prevent errors during reload
+					return;
+				else
+					width -= (prefab.Value.width + (2 * previewPadding));
 				
 				if(prefab.Key == PrefabManager.current)
 					GUI.enabled = false;
-				
-				if(GUILayout.Button (prefab.Value, GUILayout.Width (prefab.Value.width + previewPadding),
-				                 				GUILayout.Height (prefab.Value.height + previewPadding)))
+
+				if(GUILayout.Button (prefab.Value, GUILayout.Width (64+ previewPadding),
+				                 				GUILayout.Height (64 + previewPadding)))
 				                 				PrefabManager.current = prefab.Key;
+				
 				
 				GUI.enabled = true;
 				
@@ -79,8 +86,6 @@ public class PrefabManagerWindow : EditorWindow {
 			}
 		}
 		 
-		
-		
 	}
 
 }

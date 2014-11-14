@@ -28,12 +28,14 @@ public static class InstanceManager {
 	}
 	
 	public static void Instantiate(int prefabId, Vector3 position) {
-	
-		var newObject = PrefabUtility.InstantiatePrefab(PrefabManager.GetPrefabById(prefabId)) as GameObject;
+		if(prefabId == 0)
+			return;
+		
+		var newObject = PrefabUtility.InstantiatePrefab(PrefabManager.currentObject) as GameObject;
 		newObject.transform.position = position;
 		newObject.transform.Rotate(Config.DEFAULT_ROTATION);
 		newObject.transform.parent = MapEditor.mapContainer.transform;
-		_instances.Add(newObject.GetInstanceID(), newObject.transform);
+		instances.Add(newObject.GetInstanceID(), newObject.transform);
 	}
 	
 }

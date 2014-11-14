@@ -1,27 +1,64 @@
 ﻿using UnityEngine;
+using UnityEditor;
+using System.IO;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
 public static class PrefabManager 
 {
-	static int? _current;
-	public static int? current {
+	static int _current;
+	public static int current {
 		get { return _current; }
 		set { 	_current =  value; 
-				_currentPrefab = GetPrefabById((int)_current);
-				_currentTexture = GetTextureById((int)_current);
+				_currentPath = prefabPaths[_current];
+				_currentObject = prefabObjects[_current];
+				_currentTexture = prefabTextures[_current];
 		}
 	}
 	
-	static GameObject _currentPrefab;
-	public static GameObject currentPrefab {
-		get { return _currentPrefab; }
+	public static string currentPath {
+		get { return _currentPath; }
+		set { _currentPath = value; }
 	}
+	static string _currentPath;
 	
-	static Texture2D _currentTexture;
+	public static Object currentObject {
+		get { return _currentObject; }
+		set { _currentObject =  value; }
+	}
+	static Object _currentObject;
+	
 	public static Texture2D currentTexture {
 		get { return _currentTexture; }
+		set { _currentTexture = value; }
+	}
+	static Texture2D _currentTexture;
+	
+	static Dictionary<int, string> _prefabPaths;
+	public static Dictionary<int, string> prefabPaths {
+		get {return _prefabPaths ?? (_prefabPaths = new Dictionary<int, string>()); }
+	}
+	
+	static Dictionary<int, Object> _prefabObjects;
+	public static Dictionary<int, Object> prefabObjects {
+		get {return _prefabObjects ?? (_prefabObjects = new Dictionary<int, Object>());}
+	}
+	
+	static Dictionary<int, Texture2D> _prefabTextures;
+	public static Dictionary<int, Texture2D> prefabTextures {
+		get {return _prefabTextures ?? (_prefabTextures =  new Dictionary<int, Texture2D>());}
+	}
+	
+	static string[] _prefabFolders = 	{
+		"/Prefabs/Grounds/",
+		"/Prefabs/Player/", 
+		"/Prefabs/Things/", 
+		"/Prefabs/Items/"
+	};
+	
+	public static string[] prefabFolders {
+		get { return _prefabFolders; }
 	}
 	
 	public static int currentTextureWidth {
@@ -40,133 +77,120 @@ public static class PrefabManager
 		}
 	}
 
-	static string[] _prefabFolders = 	{
-										"Prefabs/Grounds",
-										"Prefabs/Player", 
-										"Prefabs/Things", 
-										"Prefabs/Items"
-										};
-										
-	public static string[] prefabFolders {
-		get { return _prefabFolders; }
-	}
-
 	static int _count;
 	public static int count {
 		get { return _count; }
+	}
+	
+	static int _nextId;
+	public static int nextId {
+		get { return _nextId; }
 	}
 
 	static bool _hasPrefabs;
 	public static bool hasPrefabs {
 		get { return _hasPrefabs; }
 	}
-
-	static Dictionary<int, GameObject> _prefabs;
-
-	public static Dictionary<int, GameObject> prefabs {
-		get { return _prefabs; }
-		set {
-			if (_prefabs == null)
-				 _prefabs = new Dictionary<int, GameObject> ();
-			_prefabs = value; 
-			}
-	}
-
-	static Dictionary<int, Texture2D> _prefabTextures;
-
-	public static Dictionary<int, Texture2D> prefabTextures {
-		get { return _prefabTextures; }
+	
+	static bool _triedToLoad;
+	
+	public static void TryLoadOnce() {
+		if(!_triedToLoad) {
+			Load ();
+			_triedToLoad = true;
+		}
 	}
 	
 	static void Clear() {
-		prefabs =  new Dictionary<int, GameObject>();
+		_prefabPaths =  new Dictionary<int, string>();
+		_prefabObjects =  new Dictionary<int, Object>();
+		_prefabTextures =  new Dictionary<int, Texture2D>();
 	}
 	
-	public static bool ReloadPrefabs() {
+	public static bool Reload() {
 		Clear ();
-		return LoadPrefabs();
+		return Load();
 	}
 
-	public static bool LoadPrefabs() {
+	public static bool Load() {
 	
-		List<Prefab> prefabList = GetPrefabList();
+		var tempPrefabPaths = GetPrefabPaths();
+		
+		if(tempPrefabPaths == null) {
+			return false;
+		}
 
-		if(prefabList.Count == 0) {
-			Debug.Log ("Error: There are no prefabs to load");
+		var tempPrefabObjects = GetPrefabObjects(tempPrefabPaths);
+		
+		if(tempPrefabObjects == null) {
+			Debug.Log ("Error: Something went wrong when loading assets from paths.");
+			return false;
+		}
+		var tempPrefabTextures = GetPrefabTextures(tempPrefabObjects);
+		
+		if(tempPrefabTextures == null) {
+			Debug.Log ("Error: Something went wrong when loading textures from paths.");
 			return false;
 		}
 		
-		if(HasDuplicates(prefabList)) {
-			Debug.Log ("Error: There are prefabs with duplicate ids.");
-			return false;
-		}
-
-		prefabs = prefabList.ToDictionary(p => p.id, p => p.gameObject);
+		_prefabPaths = tempPrefabPaths;
+		_prefabObjects = tempPrefabObjects;
+		_prefabTextures = tempPrefabTextures;
+		
 		_hasPrefabs = true;
-		_count = prefabs.Count();
-		
-		CreatePreviewTextures();
+		_count = prefabObjects.Count;
+		_nextId = prefabObjects.Keys.Max() + 1;
 
 		return true;
 	}
 	
-	public static List<Prefab> GetPrefabList() {
-		var prefabList = new List<Prefab>();
+	static Dictionary<int, string> GetPrefabPaths() {
 	
-		foreach(var folder in prefabFolders) {
-			prefabList.AddRange(Resources.LoadAll (folder, typeof(Prefab)).Cast<Prefab>());
-		}
+		var dictionary =  new Dictionary<int, string>();
+		string[] allPaths = AssetDatabase.GetAllAssetPaths();
 		
-		return prefabList;
-	}
-
-	static bool HasDuplicates(List<Prefab> prefabList)
-	{
-		if (prefabList.GroupBy (p => p.id).Where (g => g.Count() > 1).Count () != 0){
-			foreach( var grouping in prefabList.GroupBy (p => p.id).Where (g => g.Count() > 1))
-			{Debug.Log ("Duplicate id: " + grouping.Key);}
-			return true;
-		}
-		
-		return false;
-	}
-
-	static void CreatePreviewTextures() {
-
-		_prefabTextures = new Dictionary<int, Texture2D> ();
-
-		foreach (var prefab in _prefabs) {
-
-			AddPreviewTexture (prefab);
-		}
-	}
-
-	static void AddPreviewTexture(KeyValuePair<int,GameObject> prefab)
-	{
-		if (prefab.Value.GetComponent<SpriteRenderer>() == null)
-			return;
-		else
-		{
-			var sprite = prefab.Value.GetComponent<SpriteRenderer>().sprite;
-			var texture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);		
+		foreach(string path in allPaths) {
+			if(path.Contains("/Prefabs/") && path.Contains (".prefab")) {
 			
-			texture.SetPixels (sprite.texture.GetPixels((int)sprite.rect.x, (int)sprite.rect.y, (int)sprite.rect.width, (int)sprite.rect.height));
-			texture.hideFlags = HideFlags.DontSave;
-			texture.Apply();
-
-			prefabTextures.Add(prefab.Key, texture);
-		}																		
+				int id = int.Parse(Path.GetFileNameWithoutExtension(path));
+				
+				if(dictionary.ContainsKey (id)) {
+					Debug.Log ("Error: Duplicate prefab id found: ");
+					Debug.Log ("Duplicate path: " + dictionary[id].ToString());
+					Debug.Log ("Duplicate path: " + path);
+					return null;
+				}
+				else
+					dictionary.Add ( id, path);
+			}
+		}
+		if(dictionary.Count == 0) {
+			Debug.Log ("Error: There are no prefabs to load. Failed at finding paths.");
+			return null;
+		}
+		
+		return dictionary;
 	}
 	
-	public static GameObject GetPrefabById(int id) {
-		GameObject prefab = null;
-		prefab = _prefabs.Where(p => p.Key == id).FirstOrDefault().Value;
-		return prefab;
+	static Dictionary<int, Object> GetPrefabObjects(Dictionary<int, string> tempPrefabPaths) {
+		
+		var dictionary =  new Dictionary<int, Object>();
+		
+		foreach(var pair in tempPrefabPaths) {
+			dictionary.Add(pair.Key, AssetDatabase.LoadAssetAtPath(pair.Value, typeof(Object)));
+		}
+		
+		return dictionary;
 	}
 	
-	public static Texture2D GetTextureById(int id) {
-		Texture2D texture = null;
-		texture = _prefabTextures.Where (p => p.Key == id).FirstOrDefault().Value;
-		return texture;
+	static Dictionary<int, Texture2D> GetPrefabTextures(Dictionary<int, Object> tempPrefabObjects) {
+	
+		var dictionary = new Dictionary<int, Texture2D>();
+		
+		foreach(var pair in tempPrefabObjects) {
+			dictionary.Add(pair.Key, AssetPreview.GetAssetPreview(pair.Value));
+		}
+		
+		return dictionary;
 	}
 }
