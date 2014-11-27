@@ -21,6 +21,15 @@ public static partial class InstanceManager {
 		_instances =  new Dictionary<int, Instance>();
 	}
 	
+	
+	public static void ImportFrom(GameObject obj) {
+		
+		foreach(Transform child in obj.transform) {
+			Add (child.gameObject.GetInstanceID(), new Instance(child.gameObject));
+		}
+	}
+	
+	
 	public static void Instantiate(int prefabId, Vector3 position) {
 		if(prefabId == 0)
 			return;
@@ -35,7 +44,7 @@ public static partial class InstanceManager {
 		
 		stack.Start();
 		
-		Add(newObject.GetInstanceID(), new Instance(newObject, transform, stack));
+		Add(newObject.GetInstanceID(), new Instance(newObject));
 	}
 	
 }

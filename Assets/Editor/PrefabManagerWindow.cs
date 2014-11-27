@@ -54,8 +54,7 @@ public class PrefabManagerWindow : EditorWindow {
 			
 			GUILayout.BeginHorizontal();
 			
-			for(int i = 0; i < count; i++) {
-				var prefab = PrefabManager.prefabTextures.ElementAt(i);
+			foreach(var prefab in PrefabManager.prefabTextures) {
 				
 				//Wrap to new row if we exceed screen width
 				if(width <= (minimumPreviewSize + (previewPadding*2))) {
@@ -65,8 +64,10 @@ public class PrefabManagerWindow : EditorWindow {
 				}
 				
 				//subtract button width from total width
-				if(prefab.Value == null) // null check to prevent errors during reload
+				if(prefab.Value == null) { // null check to prevent errors during reload
+					Debug.Log ("Could not load texture for next prefab.");
 					return;
+					}
 				else
 					width -= (prefab.Value.width + (2 * previewPadding));
 				
@@ -77,13 +78,9 @@ public class PrefabManagerWindow : EditorWindow {
 				                 				GUILayout.Height (64 + previewPadding)))
 				                 				PrefabManager.current = prefab.Key;
 				
-				
 				GUI.enabled = true;
-				
-				//End Horizontal if we're on the last one
-				if(i == count)
-					GUILayout.EndHorizontal();
 			}
+			GUILayout.EndHorizontal();
 		}
 		 
 	}

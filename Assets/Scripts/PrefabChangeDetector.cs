@@ -10,8 +10,8 @@ public class PrefabChangeDetector : AssetPostprocessor {
 		string[] movedAssets,
 		string[] movedFromAssetPaths)
 	{
-		Debug.Log ("Asset change detected. Reloading prefabs now. ");
-		PrefabManager.Load();
+		Debug.Log ("Asset change detected. Reloading prefabs, and attempting to recreate instances from MapContainer. ");
+		PrefabManager.Reload();
 		/*
 		foreach (string str in importedAssets)
 		{

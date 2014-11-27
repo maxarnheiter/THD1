@@ -67,6 +67,7 @@ public class MapEditorWindow : EditorWindow
 			}
 			
 			case EventType.Repaint: {
+					StackRenderer.UpdateCameraObjects(sceneView.camera);
 				break;
 			}
 		}

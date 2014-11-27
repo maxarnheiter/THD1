@@ -8,4 +8,10 @@ public static class Config {
 			return new Vector3(-0.001f, -0.001f, 0f);
 		}
 	}
+	
+	//Corner Tile Sorting Order Base
+	public const int CORNER_SORT_BASE = 1;
+	
+	//Thing Object Sorting Order Base
+	public const int THING_SORT_BASE = 5000;
 }

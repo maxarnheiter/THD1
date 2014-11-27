@@ -6,10 +6,12 @@ public class Instance {
 	public GameObject gameObject;
 	public Transform transform;
 	public Stack stack;
+	public SpriteRenderer spriteRenderer;
 	
-	public Instance(GameObject obj, Transform trans, Stack stackComponent) {
+	public Instance(GameObject obj) {
 		this.gameObject = obj;
-		this.transform = trans;
-		this.stack = stackComponent;
+		this.transform = obj.transform;
+		this.stack = obj.GetComponent<Stack>();
+		this.spriteRenderer = obj.GetComponent<SpriteRenderer>();
 	}
 }

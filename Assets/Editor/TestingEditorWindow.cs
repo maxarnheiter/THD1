@@ -19,13 +19,12 @@ public class TestingEditorWindow : EditorWindow {
 		EditorGUILayout.Space ();
 		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {
 		
-			var blah = InstanceManager.instances	.OrderBy(x => x.Value.transform.position.z)
-													.OrderBy(x => x.Value.transform.position.x)
-													.OrderBy(x => x.Value.transform.position.y)
-													.OrderBy (y => y.Value.stack.uid);
+			var floor = InstanceManager.instances.Where (f => f.Value.transform.position.z == 0);
 			
-			foreach (var b in blah)
-				Debug.Log (b.Key + " " + b.Value.transform.position + " " + b.Value.stack.uid);
+			Debug.Log (floor.Count ());
+			
+			//var grounds = floor.Where (f => f.Value.gameObject.tag == "ground tile");
+			
 		
 		}
 		

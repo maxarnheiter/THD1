@@ -102,6 +102,7 @@ public static class PrefabManager
 	}
 	
 	static void Clear() {
+		_count = 0;
 		_prefabPaths =  new Dictionary<int, string>();
 		_prefabObjects =  new Dictionary<int, Object>();
 		_prefabTextures =  new Dictionary<int, Texture2D>();
