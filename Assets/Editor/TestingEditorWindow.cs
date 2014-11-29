@@ -17,14 +17,9 @@ public class TestingEditorWindow : EditorWindow {
 	void OnGUI()
 	{
 		EditorGUILayout.Space ();
-		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {
+		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	 
 		
-			var floor = InstanceManager.instances.Where (f => f.Value.transform.position.z == 0);
-			
-			Debug.Log (floor.Count ());
-			
-			//var grounds = floor.Where (f => f.Value.gameObject.tag == "ground tile");
-			
+
 		
 		}
 		

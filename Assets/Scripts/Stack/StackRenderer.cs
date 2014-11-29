@@ -13,9 +13,9 @@ public static class StackRenderer  {
 		
 		//Get all the things within that rect
 		var visibleObjects = InstanceManager.GetAllWithinRectWithoutGround(cameraRect);
-		
+
 		//Set the sorting order to all objects within the rect, according to our rules
-		SetSortingOrder(visibleObjects);
+		SetSortingOrder(SortByRules(visibleObjects));
 		
 	}
 	
