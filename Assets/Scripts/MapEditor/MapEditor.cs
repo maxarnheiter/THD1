@@ -55,6 +55,7 @@ public static class MapEditor
 		set {
 			_floor = value;
 			MapEditorPreview.OnFloorChanged();
+			FloorRenderer.SetVisibleFloors(floorHeight);
 		}
 	}
 	

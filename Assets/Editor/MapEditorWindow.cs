@@ -68,6 +68,7 @@ public class MapEditorWindow : EditorWindow
 			
 			case EventType.Repaint: {
 					StackRenderer.UpdateCameraObjects(sceneView.camera);
+					FloorRenderer.InitialSet(MapEditor.floorHeight);
 				break;
 			}
 		}

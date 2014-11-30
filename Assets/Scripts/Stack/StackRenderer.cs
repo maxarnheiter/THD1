@@ -16,7 +16,6 @@ public static class StackRenderer  {
 
 		//Set the sorting order to all objects within the rect, according to our rules
 		SetSortingOrder(SortByRules(visibleObjects));
-		
 	}
 	
 	static Rect GetVisibleRect(Camera camera) {
