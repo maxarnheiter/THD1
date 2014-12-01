@@ -12,10 +12,10 @@ public static class StackRenderer  {
 		var cameraRect = GetVisibleRect(camera);
 		
 		//Get all the things within that rect
-		var visibleObjects = InstanceManager.GetAllWithinRectWithoutGround(cameraRect);
+		var visibleObjects = InstanceManager.instances.Within(cameraRect).Without("ground tile").Sort();
 
 		//Set the sorting order to all objects within the rect, according to our rules
-		SetSortingOrder(SortByRules(visibleObjects));
+		SetSortingOrder(visibleObjects);
 	}
 	
 	static Rect GetVisibleRect(Camera camera) {
@@ -37,7 +37,7 @@ public static class StackRenderer  {
 		
 		foreach(var obj in objects) {
 			
-			switch (TagToInt(obj.Value.gameObject.tag)) {
+			switch (TagManager.TagToInt(obj.Value.gameObject.tag)) {
 				
 				case 0: //ground tile
 				break;
@@ -53,30 +53,5 @@ public static class StackRenderer  {
 		}
 	}
 	
-	public static int TagToInt(string tag) {
-	
-		switch (tag) {
-			case "ground tile":
-				return 0;
-				break;
-			case "ground corner":
-				return 1;
-				break;
-			case "thing":
-				return 2;
-				break;
-			default:
-				return 0;
-				break;
-		}
-	}
-	
-	public static IEnumerable<KeyValuePair<int, Instance>> SortByRules(IEnumerable<KeyValuePair<int, Instance>> objs) {
-	
-		 return objs.OrderByDescending(x => x.Value.transform.position.z)	
-					.ThenBy(x => TagToInt(x.Value.gameObject.tag))
-					.ThenByDescending(x => x.Value.transform.position.y)			
-					.ThenBy(x => x.Value.transform.position.x)				
-					.ThenBy(x => x.Value.stack.uid);						
-	}
+
 }

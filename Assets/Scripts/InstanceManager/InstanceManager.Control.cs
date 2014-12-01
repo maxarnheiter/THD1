@@ -29,12 +29,13 @@ public static partial class InstanceManager {
 		}
 	}
 	
-	
 	public static void Instantiate(int prefabId, Vector3 position) {
 		if(prefabId == 0)
 			return;
-		
-		var newObject = PrefabUtility.InstantiatePrefab(PrefabManager.currentObject) as GameObject;
+
+		var prefabObj = PrefabManager.prefabObjects [prefabId];
+
+		var newObject = PrefabUtility.InstantiatePrefab(prefabObj) as GameObject;
 		var transform = newObject.transform;
 		var stack = newObject.GetComponent<Stack>();
 		

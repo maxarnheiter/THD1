@@ -6,18 +6,30 @@ public static partial class InstanceManager  {
 
 	//GetAllFromPosition
 	public static IEnumerable<KeyValuePair<int, Instance>> GetAllFromPosition(Vector3 position) {
+
 		return InstanceManager.instances.Where (x => x.Value.transform.position == position);
 	}
-	
-	//GetAllWithinRect
-	//We remove ground tiles because this is our function that colaborates with our stack renderer
-	public static IEnumerable<KeyValuePair<int, Instance>> GetAllWithinRectWithoutGround(Rect rect) {
-		return InstanceManager.instances.Where (x => (x.Value.transform.position.x >= rect.xMin) &&
-													(x.Value.transform.position.x <= rect.xMax) &&
-													(x.Value.transform.position.y >= rect.yMin) &&
-													(x.Value.transform.position.y <= rect.yMax) &&
-													(x.Value.gameObject.tag != "ground tile"));
+
+	public static IEnumerable<KeyValuePair<int, Instance>> Sort(this IEnumerable<KeyValuePair<int, Instance>> objs) {
+		
+		return objs.OrderByDescending(x => x.Value.transform.position.z)	
+				.ThenBy(x => TagManager.TagToInt(x.Value.gameObject.tag))
+				.ThenByDescending(x => x.Value.transform.position.y)			
+				.ThenBy(x => x.Value.transform.position.x)				
+				.ThenBy(x => x.Value.stack.uid);						
 	}
-	
+
+	public static IEnumerable<KeyValuePair<int, Instance>> Within(this IEnumerable<KeyValuePair<int, Instance>> objs, Rect rect) {
+
+		return objs.Where 	(x => (x.Value.transform.position.x >= rect.xMin) &&
+							(x.Value.transform.position.x <= rect.xMax) &&
+							(x.Value.transform.position.y >= rect.yMin) &&
+							(x.Value.transform.position.y <= rect.yMax));
+	}
+
+	public static IEnumerable<KeyValuePair<int, Instance>> Without(this IEnumerable<KeyValuePair<int, Instance>> objs, string tag) {
+
+		return objs.Where (x => x.Value.gameObject.tag != tag);
+	}
 	
 }

@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Linq;
 using System.Collections.Generic;
 
-public static class PrefabTagManager  {
+public static class TagManager  {
 
 
 		public static void EnsureTagCompliance(Dictionary<int, string> paths, Dictionary<int, Object> objs) {
@@ -46,4 +46,22 @@ public static class PrefabTagManager  {
 			}
 
 		}
+
+	public static int TagToInt(string tag) {
+		
+		switch (tag) {
+		case "ground tile":
+			return 0;
+			break;
+		case "ground corner":
+			return 1;
+			break;
+		case "thing":
+			return 2;
+			break;
+		default:
+			return 0;
+			break;
+		}
+	}
 }

@@ -123,7 +123,7 @@ public static class MapEditor
 		
 		Map map = new Map();
 		
-		foreach(var instance in InstanceManager.instances) {
+		foreach(var instance in InstanceManager.instances.Sort()) {
 			MapObject mapObject =  new MapObject(	int.Parse(instance.Value.gameObject.name), 
 													instance.Value.transform.position.x,
 													instance.Value.transform.position.y,

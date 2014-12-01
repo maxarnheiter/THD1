@@ -123,7 +123,7 @@ public static class PrefabManager
 
 		var tempPrefabObjects = GetPrefabObjects(tempPrefabPaths);
 
-		PrefabTagManager.EnsureTagCompliance (tempPrefabPaths, tempPrefabObjects);
+		TagManager.EnsureTagCompliance (tempPrefabPaths, tempPrefabObjects);
 		
 		if(tempPrefabObjects == null) {
 			Debug.Log ("Error: Something went wrong when loading assets from paths.");
