@@ -5,15 +5,6 @@ using System.Linq;
 
 public static class FloorRenderer  {
 
-	static bool _firstSet = false;
-
-	public static void InitialSet(float floorHeight) {
-		if (!_firstSet) {
-			SetVisibleFloors(floorHeight);
-			_firstSet = true;
-		}
-	}
-
 	public static void SetVisibleFloors(float floorHeight) {
 
 		foreach (var i in InstanceManager.instances) {

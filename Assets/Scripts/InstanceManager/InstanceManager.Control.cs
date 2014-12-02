@@ -42,6 +42,9 @@ public static partial class InstanceManager {
 		transform.position = position;
 		transform.Rotate(Config.DEFAULT_ROTATION);
 		transform.parent = MapEditor.mapContainer.transform;
+
+		if (transform.position.z != 0)
+				newObject.GetComponent<SpriteRenderer> ().sortingLayerName = "Floor " + transform.position.z.ToString ();
 		
 		stack.Start();
 		

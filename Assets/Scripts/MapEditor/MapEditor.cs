@@ -117,6 +117,8 @@ public static class MapEditor
 		foreach(var mapObject in map.data) {
 			InstanceManager.Instantiate(mapObject.id, new Vector3(mapObject.x, mapObject.y, mapObject.z));
 		}
+
+		FloorRenderer.SetVisibleFloors (floorHeight);
 	}
 
 	static void save(string path) {
