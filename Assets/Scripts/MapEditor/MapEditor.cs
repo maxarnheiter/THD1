@@ -13,6 +13,8 @@ public static class MapEditor
 	public static string mapPath {
 		get { return _mapPath; }
 	}
+
+	public static bool fullFloors = false;
 	
 	static GameObject _mapContainer;
 	public static GameObject mapContainer {
@@ -75,7 +77,9 @@ public static class MapEditor
 			}
 			
 			case ClickAction.Remove: {
-				//TODO
+				
+				var obj = InstanceManager.GetTopFromPosition(new Vector3(position.x, position.y, (float)(floorHeight)));
+				InstanceManager.Destroy(obj.Key);
 				break;
 			}
 		}

@@ -20,8 +20,14 @@ public static class FloorRenderer  {
 			}
 			if(pos.z > floorHeight) {
 				i.Value.spriteRenderer.enabled = true;
-				if(i.Value.spriteRenderer.color != Config.EDITOR_FLOOR_COLOR)
-					i.Value.spriteRenderer.color = Config.EDITOR_FLOOR_COLOR;
+				if(MapEditor.fullFloors) {
+					if(i.Value.spriteRenderer.color != Color.white)
+						i.Value.spriteRenderer.color = Color.white;
+				}
+				else {
+					if(i.Value.spriteRenderer.color != Config.EDITOR_FLOOR_COLOR)
+						i.Value.spriteRenderer.color = Config.EDITOR_FLOOR_COLOR;
+				}
 			}
 		}
 	}

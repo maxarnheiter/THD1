@@ -12,9 +12,11 @@ public static class MapEditorPreview {
 	static Color _addColor = new Color(0f, 1f, 0f, _previewTransparency);
 	static Color _removeColor = new Color(1f, 0f, 0f, _previewTransparency);
 	
-	static string floorOverlaySortingLayerName {
-		get { return ("Floor " + MapEditor.floor + " Overlay"); }
+	static string floorSortingLayerName {
+		get { return ("Floor " + MapEditor.floor); }
 	}
+
+	static int previewSortingOrder = 32000;
 
 	static void CreatePreviewObject() {
 		
@@ -36,7 +38,8 @@ public static class MapEditorPreview {
 		
 		_previewRenderer = _preview.AddComponent<SpriteRenderer>();
 		_previewRenderer.sprite = _previewSprite;
-		_previewRenderer.sortingLayerName = floorOverlaySortingLayerName;
+		_previewRenderer.sortingLayerName = floorSortingLayerName;
+		_previewRenderer.sortingOrder = previewSortingOrder;
 	}
 	
 	public static void OnActionChanged() {
@@ -65,7 +68,7 @@ public static class MapEditorPreview {
 		DisableIfNoPrefab();
 		
 		if(_preview)
-			_previewRenderer.sortingLayerName = floorOverlaySortingLayerName;
+			_previewRenderer.sortingLayerName = floorSortingLayerName;
 	}
 	
 	static void DisableIfNoPrefab() {

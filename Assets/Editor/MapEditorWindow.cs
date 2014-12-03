@@ -197,6 +197,10 @@ public class MapEditorWindow : EditorWindow
 		}
 		
 		EditorGUILayout.EndVertical();
+
+		if (GUILayout.Button ("Floor Visibility", GUILayout.Width (100f))) {
+			MapEditor.fullFloors =! MapEditor.fullFloors;
+		}
 	}
 	
 	void PrefabGUI() {

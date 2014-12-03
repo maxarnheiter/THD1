@@ -14,6 +14,7 @@ public static class PrefabManager
 				_currentPath = prefabPaths[_current];
 				_currentObject = prefabObjects[_current];
 				_currentTexture = prefabTextures[_current];
+				MapEditor.action = ClickAction.Add;
 		}
 	}
 	

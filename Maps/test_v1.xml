@@ -272,25 +272,7 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>1</id>
-      <x>-11</x>
-      <y>4</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
       <id>10</id>
-      <x>-11</x>
-      <y>4</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
-      <id>10</id>
-      <x>-10</x>
-      <y>4</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
-      <id>1</id>
       <x>-10</x>
       <y>4</y>
       <z>0</z>
@@ -362,19 +344,7 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
-      <x>-12</x>
-      <y>3</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
       <id>1</id>
-      <x>-12</x>
-      <y>3</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
-      <id>10</id>
       <x>-12</x>
       <y>3</y>
       <z>0</z>
@@ -458,12 +428,6 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
-      <x>-12</x>
-      <y>2</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
       <id>1</id>
       <x>-12</x>
       <y>2</y>
@@ -512,7 +476,7 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>40</id>
       <x>-4</x>
       <y>2</y>
       <z>0</z>
@@ -548,26 +512,14 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-12</x>
       <y>1</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
-      <x>-11</x>
-      <y>1</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
       <id>1</id>
       <x>-11</x>
-      <y>1</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
-      <id>10</id>
-      <x>-10</x>
       <y>1</y>
       <z>0</z>
     </MapObject>
@@ -578,7 +530,7 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-9</x>
       <y>1</y>
       <z>0</z>
@@ -608,7 +560,7 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>40</id>
       <x>-4</x>
       <y>1</y>
       <z>0</z>
@@ -644,31 +596,31 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-12</x>
       <y>0</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-11</x>
       <y>0</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-10</x>
       <y>0</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-9</x>
       <y>0</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>1</id>
       <x>-8</x>
       <y>0</y>
       <z>0</z>
@@ -692,7 +644,7 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>10</id>
+      <id>40</id>
       <x>-4</x>
       <y>0</y>
       <z>0</z>
@@ -728,39 +680,69 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>13</id>
+      <id>23</id>
+      <x>-12</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>23</id>
       <x>-11</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>23</id>
+      <x>-10</x>
       <y>4</y>
       <z>0</z>
     </MapObject>
     <MapObject>
       <id>14</id>
-      <x>-10</x>
+      <x>-9</x>
       <y>4</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>13</id>
-      <x>-12</x>
+      <id>27</id>
+      <x>-9</x>
       <y>3</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>15</id>
-      <x>-12</x>
+      <id>25</id>
+      <x>-9</x>
       <y>2</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>15</id>
-      <x>-11</x>
+      <id>14</id>
+      <x>-8</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>25</id>
+      <x>-8</x>
       <y>1</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>16</id>
-      <x>-10</x>
+      <id>14</id>
+      <x>-7</x>
       <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>27</id>
+      <x>-7</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>20</id>
+      <x>-10</x>
+      <y>7</y>
       <z>0</z>
     </MapObject>
     <MapObject>
@@ -824,6 +806,12 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>22</id>
+      <x>-8</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>4</id>
       <x>-7</x>
       <y>5</y>
@@ -867,12 +855,6 @@
     </MapObject>
     <MapObject>
       <id>3</id>
-      <x>-4</x>
-      <y>3</y>
-      <z>0</z>
-    </MapObject>
-    <MapObject>
-      <id>3</id>
       <x>-3</x>
       <y>3</y>
       <z>0</z>
@@ -880,6 +862,12 @@
     <MapObject>
       <id>3</id>
       <x>-2</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>18</id>
+      <x>-1</x>
       <y>3</y>
       <z>0</z>
     </MapObject>
@@ -1070,62 +1058,134 @@
       <z>-1</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>18</id>
+      <x>-5</x>
+      <y>4</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
+      <id>36</id>
+      <x>-9</x>
+      <y>8</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>32</id>
+      <x>-8</x>
+      <y>8</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>30</id>
+      <x>-7</x>
+      <y>8</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>34</id>
+      <x>-6</x>
+      <y>8</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>31</id>
+      <x>-5</x>
+      <y>8</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>35</id>
+      <x>-9</x>
+      <y>7</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>39</id>
       <x>-8</x>
       <y>7</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>33</id>
       <x>-7</x>
       <y>7</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>38</id>
       <x>-6</x>
       <y>7</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>37</id>
+      <x>-5</x>
+      <y>7</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>35</id>
+      <x>-9</x>
+      <y>6</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>39</id>
       <x>-8</x>
       <y>6</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
-      <x>-8</x>
-      <y>6</y>
-      <z>-2</z>
-    </MapObject>
-    <MapObject>
-      <id>9</id>
+      <id>33</id>
       <x>-7</x>
       <y>6</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>38</id>
       <x>-6</x>
       <y>6</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>37</id>
+      <x>-5</x>
+      <y>6</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>35</id>
+      <x>-9</x>
+      <y>5</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>39</id>
       <x>-8</x>
       <y>5</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>33</id>
       <x>-7</x>
       <y>5</y>
       <z>-2</z>
     </MapObject>
     <MapObject>
-      <id>9</id>
+      <id>38</id>
       <x>-6</x>
+      <y>5</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>38</id>
+      <x>-6</x>
+      <y>5</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>37</id>
+      <x>-5</x>
       <y>5</y>
       <z>-2</z>
     </MapObject>

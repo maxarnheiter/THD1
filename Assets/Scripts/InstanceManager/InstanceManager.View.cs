@@ -10,6 +10,10 @@ public static partial class InstanceManager  {
 		return InstanceManager.instances.Where (x => x.Value.transform.position == position);
 	}
 
+	public static KeyValuePair<int, Instance> GetTopFromPosition(Vector3 position) {
+		return GetAllFromPosition (position).Sort ().LastOrDefault ();
+	}
+
 	public static IEnumerable<KeyValuePair<int, Instance>> Sort(this IEnumerable<KeyValuePair<int, Instance>> objs) {
 		
 		return objs.OrderByDescending(x => x.Value.transform.position.z)	

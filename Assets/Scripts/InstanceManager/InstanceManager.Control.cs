@@ -50,5 +50,13 @@ public static partial class InstanceManager {
 		
 		Add(newObject.GetInstanceID(), new Instance(newObject));
 	}
-	
+
+	public static void Destroy(int id) {
+
+		if (id == 0)
+			return;
+
+		GameObject.DestroyImmediate (instances [id].gameObject);
+		Remove (id);
+	}
 }
