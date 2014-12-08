@@ -4,14 +4,18 @@ using System.Collections;
 
 public class PrefabChangeDetector : AssetPostprocessor {
 
+	public static bool enabled = true;
+
 	static void OnPostprocessAllAssets (
 		string[] importedAssets,
 		string[] deletedAssets,
 		string[] movedAssets,
 		string[] movedFromAssetPaths)
 	{
-		Debug.Log ("Asset change detected. Reloading prefabs, and attempting to recreate instances from MapContainer. ");
-		PrefabManager.Reload();
+		if (enabled) {
+				Debug.Log ("Asset change detected. Reloading prefabs, and attempting to recreate instances from MapContainer. ");
+				PrefabManager.Reload ();
+		}
 		/*
 		foreach (string str in importedAssets)
 		{

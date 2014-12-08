@@ -35,5 +35,10 @@ public static partial class InstanceManager  {
 
 		return objs.Where (x => x.Value.gameObject.tag != tag);
 	}
+
+	public static IEnumerable<KeyValuePair<int, Instance>> With(this IEnumerable<KeyValuePair<int, Instance>> objs, string tag) {
+
+		return objs.Where (x => x.Value.gameObject.tag == tag);
+	}
 	
 }

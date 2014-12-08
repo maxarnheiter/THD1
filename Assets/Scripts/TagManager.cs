@@ -22,6 +22,9 @@ public static class TagManager  {
 				objs.TryGetValue(i, out obj);
 				gameObj = obj as GameObject;
 
+				if(path == null || gameObj == null)
+					return;
+		
 				if(path.Contains("/Grounds/")) {
 					if(gameObj.tag != "ground tile") {
 						gameObj.tag = "ground tile";

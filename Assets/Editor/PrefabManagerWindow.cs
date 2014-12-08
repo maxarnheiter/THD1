@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.Linq;
 using System.Collections;
@@ -7,6 +7,8 @@ public class PrefabManagerWindow : EditorWindow {
 
 	static int minimumPreviewSize = 32;
 	static int previewPadding = 12;
+
+	static Vector2 size = Vector2.zero;
 
 	[MenuItem ("THD/Prefab Window")]
 	static void Init () {
@@ -20,6 +22,7 @@ public class PrefabManagerWindow : EditorWindow {
 	
 	void OnGUI()
 	{
+
 		PrefabManager.TryLoadOnce();
 	
 		EditorGUILayout.Space ();
@@ -51,10 +54,13 @@ public class PrefabManagerWindow : EditorWindow {
 		
 			var width = this.position.width;
 			var count = PrefabManager.prefabTextures.Count;
-			
-			GUILayout.BeginHorizontal();
-			
-			foreach(var prefab in PrefabManager.prefabTextures) {
+
+			size = EditorGUILayout.BeginScrollView(size, GUILayout.Height(200f));
+
+			EditorGUILayout.BeginHorizontal();
+
+
+			foreach(var prefab in PrefabManager.prefabTextures.OrderBy(x => x.Value.width)) {
 				
 				//Wrap to new row if we exceed screen width
 				if(width <= (minimumPreviewSize + (previewPadding*2))) {
@@ -62,25 +68,26 @@ public class PrefabManagerWindow : EditorWindow {
 					GUILayout.EndHorizontal();
 					GUILayout.BeginHorizontal();
 				}
-				
+
 				//subtract button width from total width
-				if(prefab.Value == null) { // null check to prevent errors during reload
-					Debug.Log ("Could not load texture for next prefab.");
-					return;
-					}
-				else
+				if(prefab.Value != null) {
+
 					width -= (prefab.Value.width + (2 * previewPadding));
 				
 				if(prefab.Key == PrefabManager.current)
 					GUI.enabled = false;
 
-				if(GUILayout.Button (prefab.Value, GUILayout.Width (64+ previewPadding),
-				                 				GUILayout.Height (64 + previewPadding)))
+				if(GUILayout.Button (prefab.Value, GUILayout.Width (prefab.Value.width + previewPadding),
+				                 				GUILayout.Height (prefab.Value.height + previewPadding)))
 				                 				PrefabManager.current = prefab.Key;
 				
 				GUI.enabled = true;
+				}
 			}
-			GUILayout.EndHorizontal();
+		
+			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.EndScrollView();
 		}
 		 
 	}

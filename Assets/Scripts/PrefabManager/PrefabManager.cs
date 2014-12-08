@@ -51,17 +51,6 @@ public static class PrefabManager
 		get {return _prefabTextures ?? (_prefabTextures =  new Dictionary<int, Texture2D>());}
 	}
 	
-	static string[] _prefabFolders = 	{
-		"/Prefabs/Grounds/",
-		"/Prefabs/Player/", 
-		"/Prefabs/Things/", 
-		"/Prefabs/Items/"
-	};
-	
-	public static string[] prefabFolders {
-		get { return _prefabFolders; }
-	}
-	
 	public static int currentTextureWidth {
 		get {
 			if(currentTexture != null)
@@ -181,20 +170,30 @@ public static class PrefabManager
 		var dictionary =  new Dictionary<int, Object>();
 		
 		foreach(var pair in tempPrefabPaths) {
-			dictionary.Add(pair.Key, AssetDatabase.LoadAssetAtPath(pair.Value, typeof(Object)));
+			var obj = AssetDatabase.LoadAssetAtPath(pair.Value, typeof(Object));
+			dictionary.Add(pair.Key, obj);
 		}
 		
 		return dictionary;
 	}
 	
-	static Dictionary<int, Texture2D> GetPrefabTextures(Dictionary<int, Object> tempPrefabObjects) {
+	static Dictionary<int, Texture2D> GetPrefabTextures(Dictionary<int, Object> objects) {
 	
-		var dictionary = new Dictionary<int, Texture2D>();
-		
-		foreach(var pair in tempPrefabObjects) {
-			dictionary.Add(pair.Key, AssetPreview.GetAssetPreview(pair.Value));
-		}
-		
-		return dictionary;
-	}
+		var textures = new Dictionary<int, Texture2D> ();
+
+		foreach (var obj in objects) {
+
+			var renderer = (obj.Value as GameObject).GetComponent<SpriteRenderer>();
+
+			var texture = new Texture2D((int)renderer.sprite.rect.width, (int)renderer.sprite.rect.height);
+			
+			texture.SetPixels (renderer.sprite.texture.GetPixels((int)renderer.sprite.rect.x, (int)renderer.sprite.rect.y, (int)renderer.sprite.rect.width, (int)renderer.sprite.rect.height));
+
+			texture.Apply();
+					
+			textures.Add (obj.Key, texture);
+			}
+
+		return textures;
+	} 
 }

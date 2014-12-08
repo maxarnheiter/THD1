@@ -33,22 +33,30 @@ public static partial class InstanceManager {
 		if(prefabId == 0)
 			return;
 
-		var prefabObj = PrefabManager.prefabObjects [prefabId];
+		Object prefabObj = null;
 
-		var newObject = PrefabUtility.InstantiatePrefab(prefabObj) as GameObject;
-		var transform = newObject.transform;
-		var stack = newObject.GetComponent<Stack>();
-		
-		transform.position = position;
-		transform.Rotate(Config.DEFAULT_ROTATION);
-		transform.parent = MapEditor.mapContainer.transform;
+		PrefabManager.prefabObjects.TryGetValue (prefabId, out prefabObj);
 
-		if (transform.position.z != 0)
-				newObject.GetComponent<SpriteRenderer> ().sortingLayerName = "Floor " + transform.position.z.ToString ();
-		
-		stack.Start();
-		
-		Add(newObject.GetInstanceID(), new Instance(newObject));
+		if (prefabObj != null) {
+
+			var newObject = PrefabUtility.InstantiatePrefab (prefabObj) as GameObject;
+			var transform = newObject.transform;
+			var stack = newObject.GetComponent<Stack> ();
+
+			transform.position = position;
+			transform.Rotate (Config.DEFAULT_ROTATION);
+			transform.parent = MapEditor.mapContainer.transform;
+
+			if (transform.position.z != 0)
+					newObject.GetComponent<SpriteRenderer> ().sortingLayerName = "Floor " + transform.position.z.ToString ();
+
+			stack.Start ();
+
+			Add (newObject.GetInstanceID (), new Instance (newObject));
+
+			MapEditorRules.OnInstantiate(newObject);
+		} else
+			Debug.Log ("failed to instante prefab with id: " + prefabId);
 	}
 
 	public static void Destroy(int id) {

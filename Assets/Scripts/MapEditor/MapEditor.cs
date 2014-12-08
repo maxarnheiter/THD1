@@ -14,7 +14,13 @@ public static class MapEditor
 		get { return _mapPath; }
 	}
 
-	public static bool fullFloors = false;
+	public static bool fullFloors {
+		get { return _fullFloors; }
+		set { _fullFloors = value; 
+			FloorRenderer.SetVisibleFloors(floorHeight);
+		}
+	}
+	static bool _fullFloors = false;
 	
 	static GameObject _mapContainer;
 	public static GameObject mapContainer {

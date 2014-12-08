@@ -27,14 +27,29 @@ public class QuickPrefabMenu  {
 
 		int nextId = PrefabManager.nextId;
 
+		PrefabChangeDetector.enabled = false;
 		foreach (var obj in Selection.objects) {
 			var newObj = createStandardPrefab(nextId.ToString(), tag, obj as Sprite);
 
 			if(tag == "ground corner" || tag == "thing")
 				addDefaultBoxCollider2D(newObj);
 
+			saveToFolder(newObj, tag, nextId.ToString());
+
 			nextId++;
 		}
+		PrefabManager.Reload ();
+		PrefabChangeDetector.enabled = true;
+	}
+
+	static void saveToFolder(GameObject obj, string tag, string name) {
+
+		if(tag == "ground tile")
+			PrefabUtility.CreatePrefab ("Assets/Resources/Prefabs/Grounds/" + name + ".prefab", obj);
+		if(tag == "ground corner")
+			PrefabUtility.CreatePrefab ("Assets/Resources/Prefabs/Corners/" + name + ".prefab", obj);
+		if(tag == "thing")
+			PrefabUtility.CreatePrefab ("Assets/Resources/Prefabs/Things/" + name + ".prefab", obj);
 	}
 
 	static GameObject createStandardPrefab(string name, string tag, Sprite sprite) {
