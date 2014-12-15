@@ -75,65 +75,93 @@ public class MapEditorWindow : EditorWindow
 	
 	void OnGUI() {
 		
-		EditorGUILayout.Space();
-		GUILayout.Label("Map Options: ");
-		GUILayout.BeginHorizontal();
-			MapOptionsGUI();
-		GUILayout.EndHorizontal();
-		
-		EditorGUILayout.Space ();
-		GUILayout.Label("Map Statistics: ");
-			MapStatisticsGUI();
-		
-		EditorGUILayout.Space();
-			MapToolsGUI();
+		EditorGUILayout.BeginHorizontal ();
+
+		EditorGUILayout.BeginVertical ();
+		PrefabFilterGUI ();
+		PrefabManager.OnGUI (1000);
+		EditorGUILayout.EndVertical ();
+
+		EditorGUILayout.BeginVertical ();
+
+		EditorControlsGUI ();
+
+		EditorGUILayout.EndVertical ();
+
+		EditorGUILayout.EndHorizontal ();
+	}
+
+	void EditorControlsGUI() {
+
+		MapOptionsGUI ();
+		MapStatisticsGUI();
+		ActionGUI ();
+		FloorGUI();
+		PrefabGUI();
+	}
+
+	void PrefabFilterGUI() {
+
+		EditorGUILayout.BeginHorizontal ();
+
+		PrefabManager.showGrounds = GUILayout.Toggle (PrefabManager.showGrounds, "Show Grounds");
+		PrefabManager.showCorners = GUILayout.Toggle (PrefabManager.showCorners, "Show Corners");
+		PrefabManager.showThings = GUILayout.Toggle (PrefabManager.showThings, "Show Things");
+
+		EditorGUILayout.EndHorizontal ();
+
+
 	}
 	
 	void MapOptionsGUI() {
-	
-	//Clear
-		if(!InstanceManager.hasInstances)
-			GUI.enabled = false;
-		if(GUILayout.Button ("Clear", GUILayout.Width (100f))) {
-			MapEditor.Clear();
-		}
-		GUI.enabled = true;
-	
-	//New
-		if(InstanceManager.hasInstances)
-			GUI.enabled = false;
-		if(GUILayout.Button ("New", GUILayout.Width(100f))) {
-			MapEditor.New();
-		}
-		GUI.enabled = true;
+
+		EditorGUILayout.BeginHorizontal ();
 		
-	//Load
-		if(InstanceManager.hasInstances)
-			GUI.enabled = false;
-		if(GUILayout.Button ("Load", GUILayout.Width(100f))) {
-			string path = EditorUtility.OpenFilePanel("", "", "xml");
-			if(path != "")
-				MapEditor.Load(path);
-		}
-		GUI.enabled = true;
+		//Clear
+			if(!InstanceManager.hasInstances)
+				GUI.enabled = false;
+			if(GUILayout.Button ("Clear", GUILayout.Width (50f))) {
+				MapEditor.Clear();
+			}
+			GUI.enabled = true;
 		
-	//Save
-		if(!InstanceManager.hasInstances || MapEditor.mapPath == "")
-			GUI.enabled = false;
-		if(GUILayout.Button ("Save", GUILayout.Width(100f))) {
-			MapEditor.Save();
-		}
-		GUI.enabled = true;
-	
-	//Save As
-		if(!InstanceManager.hasInstances)
-			GUI.enabled = false;
-		if(GUILayout.Button ("Save As", GUILayout.Width(100f))) {
-			string path = EditorUtility.SaveFilePanel("", "", "", "xml");
-			if(path != "")
-				MapEditor.SaveAs(path);
-		}
-		GUI.enabled = true;
+		//New
+			if(InstanceManager.hasInstances)
+				GUI.enabled = false;
+			if(GUILayout.Button ("New", GUILayout.Width(50f))) {
+				MapEditor.New();
+			}
+			GUI.enabled = true;
+			
+		//Load
+			if(InstanceManager.hasInstances)
+				GUI.enabled = false;
+			if(GUILayout.Button ("Load", GUILayout.Width(50f))) {
+				string path = EditorUtility.OpenFilePanel("", "", "xml");
+				if(path != "")
+					MapEditor.Load(path);
+			}
+			GUI.enabled = true;
+			
+		//Save
+			if(!InstanceManager.hasInstances || MapEditor.mapPath == "")
+				GUI.enabled = false;
+			if(GUILayout.Button ("Save", GUILayout.Width(50f))) {
+				MapEditor.Save();
+			}
+			GUI.enabled = true;
+		
+		//Save As
+			if(!InstanceManager.hasInstances)
+				GUI.enabled = false;
+			if(GUILayout.Button ("Save As", GUILayout.Width(70f))) {
+				string path = EditorUtility.SaveFilePanel("", "", "", "xml");
+				if(path != "")
+					MapEditor.SaveAs(path);
+			}
+			GUI.enabled = true;
+
+			EditorGUILayout.EndHorizontal ();
 	}
 	
 	void MapStatisticsGUI() {
@@ -141,29 +169,9 @@ public class MapEditorWindow : EditorWindow
 		GUILayout.Label ("Current Map Path: " + MapEditor.mapPath);	
 	}
 	
-	
-	void MapToolsGUI() {
-	
-	EditorGUILayout.BeginHorizontal();
-	
-		EditorGUILayout.BeginHorizontal(GUILayout.Width (150f));
-			ActionGUI();
-		EditorGUILayout.EndHorizontal();
-		
-		EditorGUILayout.BeginHorizontal(GUILayout.Width (150f));
-			FloorGUI();
-		EditorGUILayout.EndHorizontal();
-		
-		EditorGUILayout.BeginHorizontal(GUILayout.Width (150f));
-			PrefabGUI();
-		EditorGUILayout.EndHorizontal();
-	
-	EditorGUILayout.EndHorizontal();	                
-	}
-	
 	void ActionGUI() {
 	
-		EditorGUILayout.BeginVertical();
+		EditorGUILayout.BeginHorizontal();
 		
 		if(MapEditor.action == ClickAction.Add)
 			GUI.enabled = false;
@@ -179,7 +187,7 @@ public class MapEditorWindow : EditorWindow
 		}
 		GUI.enabled = true;
 		
-		EditorGUILayout.EndVertical();
+		EditorGUILayout.EndHorizontal();
 	}
 	
 	void FloorGUI() {
@@ -208,10 +216,12 @@ public class MapEditorWindow : EditorWindow
 		EditorGUILayout.BeginVertical();
 	
 		GUILayout.Label ("Current prefab id: " + PrefabManager.current);
-		
-		GUILayout.Button (	PrefabManager.currentTexture, 
-		                  GUILayout.Width (PrefabManager.currentTextureWidth), 
-		                  GUILayout.Height(PrefabManager.currentTextureHeight));
+
+		if (PrefabManager.current == null)
+						return;
+		GUILayout.Button (	PrefabManager.current.texture, 
+		                  GUILayout.Width (PrefabManager.current.width), 
+		                  GUILayout.Height(PrefabManager.current.height));
 		                  
 		EditorGUILayout.EndVertical();
 	}

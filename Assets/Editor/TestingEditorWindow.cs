@@ -18,7 +18,7 @@ public class TestingEditorWindow : EditorWindow {
 	{
 		EditorGUILayout.Space ();
 		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	 
-		
+
 
 		
 		}

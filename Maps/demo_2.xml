@@ -2474,6 +2474,54 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>1250</id>
+      <x>-5</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1251</id>
+      <x>-1</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1250</id>
+      <x>-5</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1251</id>
+      <x>-1</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1250</id>
+      <x>-5</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1251</id>
+      <x>-1</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1250</id>
+      <x>-5</x>
+      <y>-6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>1251</id>
+      <x>-1</x>
+      <y>-6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>1059</id>
       <x>-5</x>
       <y>14</y>

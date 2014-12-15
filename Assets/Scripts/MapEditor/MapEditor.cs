@@ -64,6 +64,7 @@ public static class MapEditor
 			_floor = value;
 			MapEditorPreview.OnFloorChanged();
 			FloorRenderer.SetVisibleFloors(floorHeight);
+			StackRenderer.UpdateCameraObjects(SceneView.GetAllSceneCameras().First());
 		}
 	}
 	
@@ -77,7 +78,7 @@ public static class MapEditor
 		
 			case ClickAction.Add: {
 				if(PrefabManager.current != null)
-					InstanceManager.Instantiate(	(int)PrefabManager.current, 
+					InstanceManager.Instantiate(	PrefabManager.current, 
 													new Vector3(position.x, position.y, (float)(floorHeight)));
 				break;
 			}
@@ -105,6 +106,7 @@ public static class MapEditor
 		Clear ();
 		load(path);
 		_mapPath = path;
+		StackRenderer.UpdateCameraObjects (SceneView.GetAllSceneCameras ().First ());
 	}
 	
 	public static void Save() {
@@ -125,7 +127,8 @@ public static class MapEditor
 			map = serializer.Deserialize(stream) as Map;
 		
 		foreach(var mapObject in map.data) {
-			InstanceManager.Instantiate(mapObject.id, new Vector3(mapObject.x, mapObject.y, mapObject.z));
+			Prefab prefab = PrefabManager.GetPrefab(mapObject.id);
+			InstanceManager.Instantiate(prefab, new Vector3(mapObject.x, mapObject.y, mapObject.z));
 		}
 
 		FloorRenderer.SetVisibleFloors (floorHeight);

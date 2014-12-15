@@ -29,17 +29,12 @@ public static partial class InstanceManager {
 		}
 	}
 	
-	public static void Instantiate(int prefabId, Vector3 position) {
-		if(prefabId == 0)
+	public static void Instantiate(Prefab prefab, Vector3 position) {
+		
+		if(prefab == null)
 			return;
-
-		Object prefabObj = null;
-
-		PrefabManager.prefabObjects.TryGetValue (prefabId, out prefabObj);
-
-		if (prefabObj != null) {
-
-			var newObject = PrefabUtility.InstantiatePrefab (prefabObj) as GameObject;
+		else {
+			var newObject = PrefabUtility.InstantiatePrefab (prefab.gameObject) as GameObject;
 			var transform = newObject.transform;
 			var stack = newObject.GetComponent<Stack> ();
 
@@ -55,8 +50,8 @@ public static partial class InstanceManager {
 			Add (newObject.GetInstanceID (), new Instance (newObject));
 
 			MapEditorRules.OnInstantiate(newObject);
-		} else
-			Debug.Log ("failed to instante prefab with id: " + prefabId);
+		}
+
 	}
 
 	public static void Destroy(int id) {
