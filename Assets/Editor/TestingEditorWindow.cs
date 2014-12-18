@@ -19,9 +19,17 @@ public class TestingEditorWindow : EditorWindow {
 		EditorGUILayout.Space ();
 		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	 
 
+			var colors = PrefabManager.current.texture.GetPixels();
+
+			foreach(var blah in colors.GroupBy(x => x).OrderBy(x => x.Count ()))
+				Debug.Log(blah.Count() + " " + blah.First());
+
+
+
+		}
 
 		
 		}
 		
-	}
+
 }

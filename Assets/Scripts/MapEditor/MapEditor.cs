@@ -9,6 +9,9 @@ using System.Collections.Generic;
 
 public static class MapEditor
 {
+	public static int nextSetId;
+	public static SelectAction selectAction;
+
 	static string _mapPath;
 	public static string mapPath {
 		get { return _mapPath; }

@@ -52,21 +52,39 @@ public static partial class PrefabManager {
 		int minimumPreviewSize = 32;
 		int previewPadding = 12;
 		int width = screenWidth;
+		bool doOnce = false;
+
+		size = EditorGUILayout.BeginScrollView (size);
+		
+		EditorGUILayout.BeginHorizontal (GUILayout.MinWidth((float)screenWidth));
 
 		if (hasPrefabs) {
 
-				size = EditorGUILayout.BeginScrollView (size);
-
-				EditorGUILayout.BeginHorizontal ();
-
+				int setId = 0;
+				
 				if(filteredPrefabs != null)
-				foreach (var prefab in filteredPrefabs) {
-	
+				foreach (var prefab in filteredPrefabs.OrderBy(x => x.Value.setId)) {
+						
+						if(!doOnce) {
+							PrintSetId(0);
+							doOnce = true;
+						}
+
+						//Wrap if we have a new set id
+						if(prefab.Value.setId != setId) {
+							width = screenWidth;
+							GUILayout.EndHorizontal ();
+							GUILayout.BeginHorizontal ();
+							PrintSetId(prefab.Value.setId);
+							setId = prefab.Value.setId;
+						}
+
 						//Wrap to new row if we exceed screen width
 						if (width <= (minimumPreviewSize + (previewPadding * 2))) {
 								width = screenWidth;
 								GUILayout.EndHorizontal ();
 								GUILayout.BeginHorizontal ();
+								PrintSetId(prefab.Value.setId);
 						}
 	
 						//subtract button width from total width
@@ -78,18 +96,31 @@ public static partial class PrefabManager {
 										GUI.enabled = false;
 		
 								if (GUILayout.Button (prefab.Value.texture, GUILayout.Width (prefab.Value.width + previewPadding),
-		                   				  									GUILayout.Height (prefab.Value.height + previewPadding)))
-									PrefabManager.current = prefab.Value;
+		                   				  									GUILayout.Height (prefab.Value.height + previewPadding))) {
+
+									if(MapEditor.selectAction == SelectAction.Current) {
+										PrefabManager.current = prefab.Value;
+										Selection.activeGameObject = prefab.Value.gameObject;
+									}
+									if(MapEditor.selectAction == SelectAction.SetID) {
+										prefab.Value.setId = MapEditor.nextSetId;
+										Selection.activeGameObject = prefab.Value.gameObject;
+									}
+								}
 		
 								GUI.enabled = true;
 						}
 				}
-
-				EditorGUILayout.EndHorizontal ();
-
-				EditorGUILayout.EndScrollView ();
 		}
+		EditorGUILayout.EndHorizontal ();
+		EditorGUILayout.EndScrollView ();
 		}
+
+	public static void PrintSetId(int setId) {
+
+		//int val = (prefab.setId == 0) ? 0 : (prefab.setId - 1);
+		GUILayout.Label (setId.ToString(), GUILayout.Width (30f));
+	}
 
 	public static void SetFilteredPrefabs() {
 

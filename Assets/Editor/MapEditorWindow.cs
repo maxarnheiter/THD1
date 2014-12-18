@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Linq;
+using System.Collections.Generic;
 
 public class MapEditorWindow : EditorWindow 
 {
@@ -98,6 +100,7 @@ public class MapEditorWindow : EditorWindow
 		ActionGUI ();
 		FloorGUI();
 		PrefabGUI();
+		SetIDGUI();
 	}
 
 	void PrefabFilterGUI() {
@@ -224,6 +227,45 @@ public class MapEditorWindow : EditorWindow
 		                  GUILayout.Height(PrefabManager.current.height));
 		                  
 		EditorGUILayout.EndVertical();
+	}
+
+	void SetIDGUI() {
+
+		if (PrefabManager.prefabs.Count > 0)
+			GUILayout.Label ("Next SID: " + (PrefabManager.prefabs.Max (p => p.Value.setId + 1)));
+
+		GUILayout.Label ("Next click SID: " + MapEditor.nextSetId.ToString());
+
+		EditorGUILayout.BeginHorizontal ();
+		
+		if (GUILayout.Button ("+", GUILayout.Width (40f)))
+			MapEditor.nextSetId = MapEditor.nextSetId + 1;
+
+		if (GUILayout.Button ("-", GUILayout.Width (40f)))
+			MapEditor.nextSetId--;
+
+		if (GUILayout.Button ("*", GUILayout.Width (40f)))
+			MapEditor.nextSetId = PrefabManager.prefabs.Max (p => p.Value.setId) + 1;
+
+		EditorGUILayout.EndHorizontal ();
+
+		EditorGUILayout.BeginHorizontal ();
+
+		if (MapEditor.selectAction == SelectAction.Current)
+			GUI.enabled = false;
+		if(GUILayout.Button ("Current", GUILayout.Width (60f)))
+		   MapEditor.selectAction = SelectAction.Current;
+		GUI.enabled = true;
+
+		if (MapEditor.selectAction == SelectAction.SetID)
+			GUI.enabled = false;
+		if (GUILayout.Button ("Set ID", GUILayout.Width (60f))) {
+			MapEditor.selectAction = SelectAction.SetID;
+			PrefabManager.current = null;
+		}
+		GUI.enabled = true;
+
+		EditorGUILayout.EndHorizontal ();
 	}
 }
 
