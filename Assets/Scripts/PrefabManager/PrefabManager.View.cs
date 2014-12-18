@@ -105,6 +105,7 @@ public static partial class PrefabManager {
 									if(MapEditor.selectAction == SelectAction.SetID) {
 										prefab.Value.setId = MapEditor.nextSetId;
 										Selection.activeGameObject = prefab.Value.gameObject;
+										EditorUtility.SetDirty(prefab.Value.gameObject);
 									}
 								}
 		

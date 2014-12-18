@@ -7,7 +7,9 @@ public class MapEditorWindow : EditorWindow
 {
 	static Vector2 currentMousePos;
 	static Vector2 lastMousePos;
-	
+
+	static int newSetId;
+
 	static Texture2D _pencilIcon;
 	static Texture2D pencilIcon {
 		get { return _pencilIcon ?? (_pencilIcon = Resources.Load("EditorSprites/pencil") as Texture2D); }
@@ -264,6 +266,15 @@ public class MapEditorWindow : EditorWindow
 			PrefabManager.current = null;
 		}
 		GUI.enabled = true;
+
+		EditorGUILayout.EndHorizontal ();
+
+		EditorGUILayout.BeginHorizontal ();
+
+		newSetId = EditorGUILayout.IntField (newSetId, GUILayout.Width (50f));
+
+		if (GUILayout.Button ("Set"))
+			MapEditor.nextSetId = newSetId;
 
 		EditorGUILayout.EndHorizontal ();
 	}
