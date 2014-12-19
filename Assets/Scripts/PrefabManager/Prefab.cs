@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -13,9 +14,13 @@ public class Prefab : MonoBehaviour {
 
 	public bool isPrimary;
 	public bool isAlt;
-
-	public bool isColorSet;
-	public Color primaryColor;
+	
+	
+	public PrefabType prefabType;
+	
+	public PrefabCategory prefabCategory = PrefabCategory.None;
+	
+	public PrefabColor prefabColor = PrefabColor.None;
 
 	public void Check() {
 
@@ -30,9 +35,9 @@ public class Prefab : MonoBehaviour {
 
 		if (height != texture.height)
 			height = texture.height;
+		
+		CheckPrefabType();
 
-		//if (!isColorSet)
-		//	SetColor ();
 	}
 
 	void SetTexture() {
@@ -45,17 +50,17 @@ public class Prefab : MonoBehaviour {
 
 		this.texture.Apply ();
 	}
-
-	public void SetColor() {
-
-		var colors = this.texture.GetPixels ();
-
-		var blah = colors.GroupBy (x => x).OrderByDescending (g => g.Count ()).First ();
-
-		var b = blah.First ();
-		this.primaryColor = b;
-
-		isColorSet = true;
+	
+	void CheckPrefabType()
+	{
+		if(this.gameObject.tag == "ground tile" && this.prefabType != PrefabType.Ground)
+			this.prefabType = PrefabType.Ground;
+			
+		if(this.gameObject.tag == "ground corner" && this.prefabType != PrefabType.Corner)
+			this.prefabType = PrefabType.Corner;
+			
+		if(this.gameObject.tag == "thing" && this.prefabType != PrefabType.Thing)
+			this.prefabType = PrefabType.Thing;
 	}
 
 	 

@@ -17,14 +17,12 @@ public class TestingEditorWindow : EditorWindow {
 	void OnGUI()
 	{
 		EditorGUILayout.Space ();
-		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	 
-
-			var colors = PrefabManager.current.texture.GetPixels();
-
-			foreach(var blah in colors.GroupBy(x => x).OrderBy(x => x.Count ()))
-				Debug.Log(blah.Count() + " " + blah.First());
-
-
+		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	
+			
+			int manager = (int)PrefabManager.prefabType;
+			int current = (int)PrefabManager.current.prefabType;
+			
+			Debug.Log (manager + " " + current + " " + (current & manager));
 
 		}
 

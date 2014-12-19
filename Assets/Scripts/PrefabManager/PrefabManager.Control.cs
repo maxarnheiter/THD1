@@ -22,7 +22,11 @@ public static partial class PrefabManager
 
 		Clear ();
 	
-		var rawPrefabs = Resources.FindObjectsOfTypeAll<Prefab> ();
+		var rawObjects = Resources.LoadAll ("Prefabs/");
+		var rawPrefabs = new List<Prefab>();
+		
+		foreach(Object rawObject in rawObjects)
+			rawPrefabs.Add ((rawObject as GameObject).GetComponent<Prefab>());
 
 		foreach (var prefab in rawPrefabs) {
 

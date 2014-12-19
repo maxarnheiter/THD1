@@ -83,7 +83,7 @@ public class MapEditorWindow : EditorWindow
 
 		EditorGUILayout.BeginVertical ();
 		PrefabFilterGUI ();
-		PrefabManager.OnGUI (1000);
+		PrefabManager.OnGUI (800);
 		EditorGUILayout.EndVertical ();
 
 		EditorGUILayout.BeginVertical ();
@@ -109,9 +109,12 @@ public class MapEditorWindow : EditorWindow
 
 		EditorGUILayout.BeginHorizontal ();
 
-		PrefabManager.showGrounds = GUILayout.Toggle (PrefabManager.showGrounds, "Show Grounds");
-		PrefabManager.showCorners = GUILayout.Toggle (PrefabManager.showCorners, "Show Corners");
-		PrefabManager.showThings = GUILayout.Toggle (PrefabManager.showThings, "Show Things");
+		PrefabManager.prefabType = (PrefabType)EditorGUILayout.EnumMaskField(PrefabManager.prefabType);
+	
+		PrefabManager.prefabCategory = (PrefabCategory)EditorGUILayout.EnumMaskField(PrefabManager.prefabCategory);
+		
+		PrefabManager.prefabColor = (PrefabColor)EditorGUILayout.EnumMaskField(PrefabManager.prefabColor);
+		
 
 		EditorGUILayout.EndHorizontal ();
 
