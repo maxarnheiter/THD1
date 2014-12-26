@@ -69,3 +69,11 @@ public enum PrefabColor {
 	Beige, 
 	Pink
 }
+
+public enum Direction {
+	North,
+	South,
+	East,
+	West
+}
+
