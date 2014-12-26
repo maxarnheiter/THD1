@@ -78,8 +78,18 @@ public static partial class PrefabManager {
 										Selection.activeGameObject = prefab.Value.gameObject;
 										EditorUtility.SetDirty(prefab.Value.gameObject);
 									}
-								}
-		
+									if(MapEditor.selectAction == SelectAction.SetCategory) {
+										prefab.Value.prefabCategory = MapEditor.nextCategory;
+										Selection.activeGameObject = prefab.Value.gameObject;
+										EditorUtility.SetDirty(prefab.Value.gameObject);
+									}
+									if(MapEditor.selectAction == SelectAction.SetColor) {
+										prefab.Value.prefabColor = MapEditor.nextColor;
+										Selection.activeGameObject = prefab.Value.gameObject;
+										EditorUtility.SetDirty(prefab.Value.gameObject);
+									}
+					}
+					
 								GUI.enabled = true;
 						}
 				}
@@ -89,27 +99,22 @@ public static partial class PrefabManager {
 		}
 
 	public static void PrintSetId(int setId) {
-
-		//int val = (prefab.setId == 0) ? 0 : (prefab.setId - 1);
+		
 		GUILayout.Label (setId.ToString(), GUILayout.Width (30f));
 	}
 	
 	static bool PrefabPassesFilters(Prefab prefab)
 	{
-		if(PrefabManager.prefabType == 0 && PrefabManager.prefabCategory == 0 && PrefabManager.prefabColor == 0)
+
+		if (PrefabManager.prefabType != PrefabType.Any && prefab.prefabType != PrefabManager.prefabType)
 			return false;
-	
-		if(PrefabManager.prefabType != 0)
-		if(((int)PrefabManager.prefabType & (int)prefab.prefabType) != (int)prefab.prefabType)
+
+		if (PrefabManager.prefabCategory != PrefabCategory.Any && prefab.prefabCategory != PrefabManager.prefabCategory)
 			return false;
-		
-		if(PrefabManager.prefabCategory != 0)
-		if(((int)PrefabManager.prefabCategory & (int)prefab.prefabCategory) != (int)prefab.prefabCategory)
+
+		if (PrefabManager.prefabColor != PrefabColor.Any && prefab.prefabColor != PrefabManager.prefabColor)
 			return false;
 			
-		if(PrefabManager.prefabColor != 0)
-		if(((int)PrefabManager.prefabColor & (int)prefab.prefabColor) != (int)prefab.prefabColor)
-			return false;
 	
 	
 		return true;

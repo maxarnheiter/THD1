@@ -11,6 +11,8 @@ public static class MapEditor
 {
 	public static int nextSetId;
 	public static SelectAction selectAction;
+	public static PrefabCategory nextCategory;
+	public static PrefabColor nextColor;
 
 	static string _mapPath;
 	public static string mapPath {

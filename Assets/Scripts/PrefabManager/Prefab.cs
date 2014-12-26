@@ -16,7 +16,7 @@ public class Prefab : MonoBehaviour {
 	public bool isAlt;
 	
 	
-	public PrefabType prefabType;
+	public PrefabType prefabType = PrefabType.None;
 	
 	public PrefabCategory prefabCategory = PrefabCategory.None;
 	
@@ -53,6 +53,7 @@ public class Prefab : MonoBehaviour {
 	
 	void CheckPrefabType()
 	{
+
 		if(this.gameObject.tag == "ground tile" && this.prefabType != PrefabType.Ground)
 			this.prefabType = PrefabType.Ground;
 			
@@ -61,6 +62,10 @@ public class Prefab : MonoBehaviour {
 			
 		if(this.gameObject.tag == "thing" && this.prefabType != PrefabType.Thing)
 			this.prefabType = PrefabType.Thing;
+			
+		if (this.gameObject.tag == "player" && this.prefabType != PrefabType.Player)
+			this.prefabType = PrefabType.Player;
+
 	}
 
 	 

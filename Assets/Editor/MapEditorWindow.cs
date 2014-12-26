@@ -109,11 +109,11 @@ public class MapEditorWindow : EditorWindow
 
 		EditorGUILayout.BeginHorizontal ();
 
-		PrefabManager.prefabType = (PrefabType)EditorGUILayout.EnumMaskField(PrefabManager.prefabType);
+		PrefabManager.prefabType = (PrefabType)EditorGUILayout.EnumPopup(PrefabManager.prefabType);
 	
-		PrefabManager.prefabCategory = (PrefabCategory)EditorGUILayout.EnumMaskField(PrefabManager.prefabCategory);
+		PrefabManager.prefabCategory = (PrefabCategory)EditorGUILayout.EnumPopup(PrefabManager.prefabCategory);
 		
-		PrefabManager.prefabColor = (PrefabColor)EditorGUILayout.EnumMaskField(PrefabManager.prefabColor);
+		PrefabManager.prefabColor = (PrefabColor)EditorGUILayout.EnumPopup(PrefabManager.prefabColor);
 		
 
 		EditorGUILayout.EndHorizontal ();
@@ -270,6 +270,22 @@ public class MapEditorWindow : EditorWindow
 		}
 		GUI.enabled = true;
 
+		if (MapEditor.selectAction == SelectAction.SetCategory)
+			GUI.enabled = false;
+		if (GUILayout.Button ("Set Category", GUILayout.Width (100f))) {
+			MapEditor.selectAction = SelectAction.SetCategory;
+			PrefabManager.current = null;
+		}
+		GUI.enabled = true;
+
+		if (MapEditor.selectAction == SelectAction.SetColor)
+			GUI.enabled = false;
+		if (GUILayout.Button ("Set Color", GUILayout.Width (90f))) {
+			MapEditor.selectAction = SelectAction.SetColor;
+			PrefabManager.current = null;
+		}
+		GUI.enabled = true;
+
 		EditorGUILayout.EndHorizontal ();
 
 		EditorGUILayout.BeginHorizontal ();
@@ -280,6 +296,13 @@ public class MapEditorWindow : EditorWindow
 			MapEditor.nextSetId = newSetId;
 
 		EditorGUILayout.EndHorizontal ();
+
+
+		GUILayout.Label ("Category:");
+		MapEditor.nextCategory = (PrefabCategory)EditorGUILayout.EnumPopup (MapEditor.nextCategory);
+
+		GUILayout.Label ("Color:");
+		MapEditor.nextColor = (PrefabColor)EditorGUILayout.EnumPopup (MapEditor.nextColor);
 	}
 }
 

@@ -9,38 +9,63 @@ public enum ClickAction {
 
 public enum SelectAction {
 	Current, 
-	SetID
+	SetID,
+	SetCategory,
+	SetColor
 }
 
 public enum PrefabType {
-	
-	None = 1,
-	Ground = 2,
-	Corner = 4,
-	Thing = 8
+
+	None,
+	Any,
+	Ground,
+	Corner,
+	Thing,
+	Player
 }
 
 public enum PrefabCategory {
 
-	None = 1,
-	Tree = 2,
-	Wall = 4,
-	Water = 8
+	None,
+	Any,
+	Trees,
+	Walls,
+	Water,
+	Bushes,
+	Statues,
+	Pillar,
+	Stone,
+	Stairs,
+	Ladders,
+	Railings,
+	Science,
+	Ships,
+	Wood,
+	Road,
+	Cave,
+	Roofs,
+	Ice,
+	Grass,
+	Swamp,
+	Carpet,
+	Desert,
+	Tile
 }
 
 public enum PrefabColor {
 
-	None = 1,
-	White = 2, 
-	Black = 4,
-	Gray = 8,
-	Red = 16, 
-	Blue = 32, 
-	Green = 64, 
-	Yellow = 128, 
-	Purple = 256, 
-	Orange = 512, 
-	Brown = 1024, 
-	Beige = 2048, 
-	Pink = 4096
+	None,
+	Any,
+	White, 
+	Black,
+	Gray,
+	Red, 
+	Blue, 
+	Green, 
+	Yellow, 
+	Purple, 
+	Orange, 
+	Brown, 
+	Beige, 
+	Pink
 }

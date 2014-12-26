@@ -19,10 +19,6 @@ public class TestingEditorWindow : EditorWindow {
 		EditorGUILayout.Space ();
 		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	
 			
-			int manager = (int)PrefabManager.prefabType;
-			int current = (int)PrefabManager.current.prefabType;
-			
-			Debug.Log (manager + " " + current + " " + (current & manager));
 
 		}
 
