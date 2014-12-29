@@ -15,8 +15,6 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 	
-		
-		
 		walkAnimation = this.GetComponent<WalkAnimation> ();
 
 		last = this.transform.position;

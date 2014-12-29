@@ -9,6 +9,10 @@ public class CustomCreatureAnimationEditor : Editor
 	public override void OnInspectorGUI()
 	{
 		var ca = (CreatureAnimation)target;
+		
+		ca.switchDistance = EditorGUILayout.FloatField("Switch Distance: ", ca.switchDistance);
+		
+		EditorGUILayout.Space ();
 
 		DirectionalAnimationMenu (ca.north);
 		DirectionalAnimationMenu (ca.south);

@@ -7,10 +7,14 @@ public class TileMovement : MonoBehaviour {
 
 	Vector3 current;
 	Vector3 last;
+	Vector3 start;
 	Vector3 target;
+	
+	bool isMoving;
+	bool hasTarget;
 
 	float step;
-	float speed = 1f;
+	public float speed = 1f;
 
 	void Start () 
 	{
@@ -25,6 +29,15 @@ public class TileMovement : MonoBehaviour {
 		step = speed * Time.deltaTime;
 		current = transform.position;
 
+		if(current != last)
+		{
+			isMoving = true;
+		}
+		else
+		{
+			isMoving = false;
+		}
+
 		if (current != target) 
 		{
 			DoStep();
@@ -34,48 +47,65 @@ public class TileMovement : MonoBehaviour {
 		{
 			OnTargetReached();
 		}
+		
+		last = current;
 
 	}
 
 	public void Move(Direction direction)
 	{
-		float xChange = 0f;
-		float yChange = 0f;
-
-		switch (direction) 
+		if(!isMoving)
 		{
-			case Direction.North:
-				yChange = 1f;
-			break;
-			case Direction.East:
-				xChange = 1f;
-			break;
-			case Direction.South:
-				yChange = -1f;
-			break;
-			case Direction.West:
-				xChange = -1f;
-			break;
+			creatureAnimation.SetDirection(direction, true);
+		
+			start = current.RoundXY();
+		
+			float xChange = 0f;
+			float yChange = 0f;
+	
+			switch (direction) 
+			{
+				case Direction.North:
+					yChange = 1f;
+				break;
+				case Direction.East:
+					xChange = 1f;
+				break;
+				case Direction.South:
+					yChange = -1f;
+				break;
+				case Direction.West:
+					xChange = -1f;
+				break;
+			}
+			
+			target = new Vector3 (start.x + xChange, start.y + yChange, start.z);
+			hasTarget = true; 
 		}
-
-		Vector3 rounded = current.RoundXY();
-		target = new Vector3 (rounded.x + xChange, rounded.y + yChange, rounded.z);
 	}
 
 	public void ChangeDirection(Direction direction)
 	{
-
+		creatureAnimation.SetDirection(direction, false);
 	}
 
 	void DoStep()
 	{
-		transform.position = Vector3.MoveTowards(current, target, step);
-		//send step info to animation
+		if(hasTarget)
+		{
+			transform.position = Vector3.MoveTowards(current, target, step);
+			creatureAnimation.AddDistance(step);
+		}
 	}
 
 	void OnTargetReached()
 	{
-
+		if(hasTarget)
+		{
+			hasTarget = false;
+			transform.position = target;
+			creatureAnimation.Stop();
+		}
 	}
 
 }

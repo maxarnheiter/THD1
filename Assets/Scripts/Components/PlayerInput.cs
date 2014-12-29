@@ -19,7 +19,6 @@ public class PlayerInput : MonoBehaviour {
 		GetInput ();
 		ProcessInput ();
 		Reset ();
-
 	}
 
 	void GetInput()
@@ -67,7 +66,6 @@ public class PlayerInput : MonoBehaviour {
 		receivedInput = true;
 		input = choice;
 	}
-
 
 	void ProcessInput()
 	{
