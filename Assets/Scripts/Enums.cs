@@ -71,9 +71,17 @@ public enum PrefabColor {
 }
 
 public enum Direction {
+
 	North,
 	South,
 	East,
 	West
+}
+
+public enum PlayerInputChoice {
+
+	None,
+	Move,
+	ChangeDirection
 }
 
