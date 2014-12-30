@@ -3,26 +3,26 @@ using System.Collections.Generic;
 
 public class CreatureAnimation : MonoBehaviour {
 
-	public float switchDistance;
-	public float currentDistance;
-	public bool isWalking;
-
-	DirectionalAnimation current = null;
+	//publics
+	public float animationSpeed;
+	public float movementSpeed;
 	
-	bool delayedStop;
-	int delayCount;
-	int maxDelay = 10;
-
 	public DirectionalAnimation north = null;
 	public DirectionalAnimation south = null;
 	public DirectionalAnimation east = null;
 	public DirectionalAnimation west = null;
-
+	
+	//privates
+	DirectionalAnimation current = null;
 	SpriteRenderer renderer;
+	bool isMoving;
+	
+	bool delayedStop;
+	float delayedStopCount = 0f;
+	float delayedStopMax = 10f;
 
 	public CreatureAnimation()
 	{
-		switchDistance = 0.5f;
 		north = new DirectionalAnimation (Direction.North);
 		south = new DirectionalAnimation (Direction.South);
 		east = new DirectionalAnimation (Direction.East);
@@ -39,74 +39,76 @@ public class CreatureAnimation : MonoBehaviour {
 	void Update () 
 	{
 		CheckDelayedStop();
+		current.Animate(renderer, isMoving, GetAdjustedSpeed());
 	}
-
-	public void AddDistance(float distance)
+	
+//Public Controls
+	
+	public void SetDirection(Direction direction)
 	{
-		currentDistance += distance;
-
-		if (currentDistance >= switchDistance)
-		{
-			current.SwitchFeet (renderer);
-			currentDistance = 0f;
-		}
-
-	}
-
-	public void SetDirection(Direction direction, bool isMoving)
-	{
-		isWalking = isMoving;
-		delayCount = 0;
-		delayedStop = false;
-		
-		switch (direction) 
+		switch(direction)
 		{
 			case Direction.North:
-				SetCurrent(north);
+				current = north;
 			break;
 			case Direction.South:
-				SetCurrent(south);
+				current = south;
 			break;
 			case Direction.East:
-				SetCurrent(east);
+				current = east;
 			break;
 			case Direction.West:
-				SetCurrent(west);
+				current = west;
 			break;
 		}
 	}
 	
-	void SetCurrent(DirectionalAnimation newDirectional)
+	public void SetMoving(bool moving)
 	{
-		current = newDirectional;
-		
-		if(isWalking)
-			current.SwitchFeet(renderer);
-		else if (!isWalking)
-			current.SetStanding(renderer);
+		if(moving)
+		{
+			isMoving = true;
+			ResetDelayedStop();
+		}
+		else
+		{
+			delayedStop = true;
+		}
 	}
 	
-	public void Stop()
+//Private Controls
+	
+	float GetAdjustedSpeed()
 	{
-		delayedStop = true;
-		isWalking = false;
+		if(movementSpeed <= 0f)
+			return animationSpeed;
+		else
+		{
+			float adjustedSpeed = animationSpeed / movementSpeed;
+			return adjustedSpeed;
+		}
 	}
 	
-	public void CheckDelayedStop()
+	void CheckDelayedStop()
 	{
 		if(delayedStop)
 		{
-			delayCount++;
-			if(delayCount == maxDelay)
+			delayedStopCount++;
+			if(delayedStopCount >= delayedStopMax)
 			{
-				delayCount = 0;
 				delayedStop = false;
-				if(!isWalking)
-					current.SetStanding(renderer);
+				delayedStopCount = 0;
+				isMoving = false;
 			}
 		}
-		
 	}
+	
+	void ResetDelayedStop()
+	{
+		delayedStop = false;
+		delayedStopCount = 0;
+	}
+
 
 
 }

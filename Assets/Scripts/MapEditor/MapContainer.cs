@@ -5,17 +5,21 @@ using System.Collections;
 [ExecuteInEditMode]
 public class MapContainer : MonoBehaviour {
 
-	void Start () {
+	void Start () 
+	{
 		CheckForDisparty();
 	}
 	
-	void Update () {
+	void Update () 
+	{
 		CheckForDisparty();
 	}
 	
 	void CheckForDisparty() {
 	
-		if(InstanceManager.instances.Count == 0 && this.transform.childCount != 0) {
+		if(InstanceManager.instances.Count == 0 && this.transform.childCount != 0) 
+		{
+			Debug.Log ("Desparity detected.");
 			InstanceManager.ImportFrom(this.gameObject);
 		}
 	}

@@ -10,7 +10,7 @@ public class CustomCreatureAnimationEditor : Editor
 	{
 		var ca = (CreatureAnimation)target;
 		
-		ca.switchDistance = EditorGUILayout.FloatField("Switch Distance: ", ca.switchDistance);
+		ca.animationSpeed = EditorGUILayout.FloatField("Animation Speed: ", ca.animationSpeed);
 		
 		EditorGUILayout.Space ();
 

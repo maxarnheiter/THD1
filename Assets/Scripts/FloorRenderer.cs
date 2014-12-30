@@ -3,32 +3,62 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
 
-public static class FloorRenderer  {
+public static class FloorRenderer  
+{
 
-	public static void SetVisibleFloors(float floorHeight) {
+// Public Controls
 
-		foreach (var i in InstanceManager.instances) {
+	public static void SetVisibleFloors(float floorHeight, bool fullVisibility) 
+	{
 
+		foreach (var i in InstanceManager.instances) 
+		{
 			var pos = i.Value.transform.position;
-			if(pos.z < floorHeight) {
-				i.Value.spriteRenderer.enabled = false;
+			
+			if(pos.z < floorHeight)			//Above
+			{
+				SetVisibility(i.Value, false, false);
 			}
-			if(pos.z == floorHeight) {
-				i.Value.spriteRenderer.enabled = true;
-				if(i.Value.spriteRenderer.color != Color.white)
-					i.Value.spriteRenderer.color = Color.white;
+			else if(pos.z == floorHeight) 	//Same
+			{
+				SetVisibility(i.Value, true, true);
 			}
-			if(pos.z > floorHeight) {
-				i.Value.spriteRenderer.enabled = true;
-				if(MapEditor.fullFloors) {
-					if(i.Value.spriteRenderer.color != Color.white)
-						i.Value.spriteRenderer.color = Color.white;
-				}
-				else {
-					if(i.Value.spriteRenderer.color != Config.EDITOR_FLOOR_COLOR)
-						i.Value.spriteRenderer.color = Config.EDITOR_FLOOR_COLOR;
-				}
+			else if(pos.z > floorHeight) 	//Below
+			{
+				SetVisibility(i.Value, true, fullVisibility);
 			}
 		}
 	}
+	
+// Private Controls 
+
+	static void SetVisibility(Instance instance, bool isEnabled, bool fullVisibility)
+	{
+		if(!isEnabled)
+		{
+			instance.spriteRenderer.enabled = false;
+		}
+		else
+		{
+			instance.spriteRenderer.enabled = true;
+		
+			if(fullVisibility)
+			{
+				CheckAndSetColor(instance.spriteRenderer, Color.white);
+			}
+			else
+			{
+				CheckAndSetColor(instance.spriteRenderer, Config.EDITOR_FLOOR_COLOR);
+			}
+		}
+	}
+	
+	static void CheckAndSetColor(SpriteRenderer renderer, Color color)
+	{
+		if(renderer.color != color)
+			renderer.color = color;
+	}
+	
+	
+	
 }

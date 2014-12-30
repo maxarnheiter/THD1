@@ -22,7 +22,7 @@ public static class MapEditor
 	public static bool fullFloors {
 		get { return _fullFloors; }
 		set { _fullFloors = value; 
-			FloorRenderer.SetVisibleFloors(floorHeight);
+			FloorRenderer.SetVisibleFloors(floorHeight, _fullFloors);
 		}
 	}
 	static bool _fullFloors = false;
@@ -68,7 +68,7 @@ public static class MapEditor
 		set {
 			_floor = value;
 			MapEditorPreview.OnFloorChanged();
-			FloorRenderer.SetVisibleFloors(floorHeight);
+			FloorRenderer.SetVisibleFloors(floorHeight, fullFloors);
 			StackRenderer.UpdateCameraObjects(SceneView.GetAllSceneCameras().First());
 		}
 	}
@@ -136,7 +136,7 @@ public static class MapEditor
 			InstanceManager.Instantiate(prefab, new Vector3(mapObject.x, mapObject.y, mapObject.z));
 		}
 
-		FloorRenderer.SetVisibleFloors (floorHeight);
+		FloorRenderer.SetVisibleFloors (floorHeight, fullFloors);
 	}
 
 	static void save(string path) {

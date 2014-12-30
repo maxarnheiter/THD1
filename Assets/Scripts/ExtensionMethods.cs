@@ -12,5 +12,30 @@ public static class ExtensionMethods
 
 		return new Vector3(x,y,z);
 	}
+	
+	public static bool IsAbove(this Vector3 position, Vector3 target)
+	{
+		if(position.z < target.z)
+			return true;
+			
+		return false;
+	}
+	
+	public static bool IsBelow(this Vector3 position, Vector3 target)
+	{
+		if(position.z > target.z)
+			return true;
+		
+		return false;
+	}
+	
+	public static bool IsSameHeight(this Vector3 position, Vector3 target)
+	{
+		if(position.z == target.z)
+			return true;
+			
+		return false;
+	}
+	
 
 }

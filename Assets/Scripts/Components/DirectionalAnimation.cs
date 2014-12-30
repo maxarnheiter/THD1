@@ -16,44 +16,58 @@ public class DirectionalAnimation
 	public Sprite left;
 	public Sprite right;
 	
-	float lastSwitchTime;
-	float minimumSwitchTime = 0.1f;
-
-	public void SwitchFeet(SpriteRenderer renderer)
+	float lastTime;
+	float elapsedTime;
+	
+	public void Animate(SpriteRenderer renderer, bool isMoving, float minimumSwitchTime)
 	{
-		float timeElapsed = Time.realtimeSinceStartup - lastSwitchTime;
 		
-		if(timeElapsed >= minimumSwitchTime)
+		if(!isMoving)	//Standing
 		{
-			//If our starting point is a standing position
-			if(renderer.sprite != left && renderer.sprite != right)
+			if(renderer.sprite != standing)
+				renderer.sprite = standing;
+		}
+		
+		else 			//Moving
+		{
+			elapsedTime = Time.realtimeSinceStartup - lastTime;
+			
+			CheckIfStanding(renderer);
+			
+			if(elapsedTime >= minimumSwitchTime)
 			{
-				renderer.sprite = left;
-				lastSwitchTime = Time.realtimeSinceStartup;
-				return;
-			}
-			//If our current sprite has the right foot forward
-			if(renderer.sprite == right)
-			{
-				renderer.sprite = left;
-				lastSwitchTime = Time.realtimeSinceStartup;
-				return;
-			}
-			//If our current sprite has the left foot forward
-			if(renderer.sprite == left)
-			{
-				renderer.sprite = right;
-				lastSwitchTime = Time.realtimeSinceStartup;
-				return;
+				SwitchFeet(renderer);
 			}
 		}
-		else
-			Debug.Log (timeElapsed);
+	}
+
+	void SwitchFeet(SpriteRenderer renderer)
+	{
+		//If our current sprite has the right foot forward
+		if(renderer.sprite == right)
+		{
+			renderer.sprite = left;
+			lastTime = Time.realtimeSinceStartup;
+			return;
+		}
+		//If our current sprite has the left foot forward
+		if(renderer.sprite == left)
+		{
+			renderer.sprite = right;
+			lastTime = Time.realtimeSinceStartup;
+			return;
+		}
+		
 	}
 	
-	public void SetStanding(SpriteRenderer renderer)
+	void CheckIfStanding(SpriteRenderer renderer)
 	{
-		renderer.sprite = standing;
+		//If our starting point is a standing position
+		if(renderer.sprite != left && renderer.sprite != right)
+		{
+			renderer.sprite = left;
+			lastTime = Time.realtimeSinceStartup;
+		}
 	}
 	
 }
