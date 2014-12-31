@@ -37,5 +37,24 @@ public static class ExtensionMethods
 		return false;
 	}
 	
+	public static Vector3 North(this Vector3 position)
+	{
+		return new Vector3(position.x, position.y + 1, position.z);
+	}
+	
+	public static Vector3 South(this Vector3 position)
+	{
+		return new Vector3(position.x, position.y - 1, position.z);
+	}
+	
+	public static Vector3 East(this Vector3 position)
+	{
+		return new Vector3(position.x + 1, position.y, position.z);
+	}
+	
+	public static Vector3 West(this Vector3 position)
+	{
+		return new Vector3(position.x - 1, position.y, position.z);
+	}
 
 }

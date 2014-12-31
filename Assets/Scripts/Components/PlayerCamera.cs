@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class PlayerCamera : MonoBehaviour {
 
@@ -72,42 +73,43 @@ public class PlayerCamera : MonoBehaviour {
 	{
 		if(playerCamera != null)
 		{
-			/*
-			var currentPosition = this.transform.position;
-		
-			var start = 	new Vector2(playerCamera.transform.position.x + xOffset, 	playerCamera.transform.position.y + yOffset);
-			var end = 		new Vector2(currentPosition.x + xOffset, 					currentPosition.y + yOffset);
+			var currentPos = this.transform.position;
 			
+			var checkPos = currentPos.South();
 			
-
-			RaycastHit2D hit = Physics2D.Raycast(start, end);
+			Rect r = new Rect(checkPos.x, checkPos.y, 1f, 1f);
 			
+			DebugExtensions.DrawRect(r, -8f);
 			
+			var result = InstanceManager.instances.Within(r).Where (p => p.Value.transform.position.z < currentPos.z);
 			
-			if(hit.collider != null)
+			if(result.Count() > 0)
 			{
-			
-				Vector3 hitPosition = hit.collider.transform.position;
-				float hitHeight = hitPosition.z;
+				bool isCovered = false;
+				float coverHeight = -100f;
 				
-				if(hitPosition.IsAbove(currentPosition))
+				foreach(var res in result)
 				{
-					DebugExtensions.DrawX(new Vector3(hit.centroid.x, hit.centroid.y, -10f), 0.1f);
-					Debug.Log ("Found something above us on floor with height: " + hitHeight);
-					//float hideHeight = hitHeight + 1f;
-					//FloorRenderer.SetVisibleFloors(hideHeight, true);
-					hit.collider.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+					Vector3 compare = new Vector3(currentPos.x, currentPos.y, res.Value.transform.position.z);
+					if(res.Value.spriteRenderer.bounds.Contains(compare))
+					{
+						isCovered = true;
+						if(compare.z > coverHeight)
+							coverHeight = compare.z;
+					}
 				}
-					
-				if(hitPosition.IsSameHeight(currentPosition))
+				
+				if(isCovered)
 				{
-					Debug.Log ("There is nothing above us.");
-					FloorRenderer.SetVisibleFloors(refreshHeight, true);
+					isCovered = false;
+					FloorRenderer.SetVisibleFloors(coverHeight+1, true);
+					coverHeight = -100f;
 				}
+			}	
+			else
+			{
+				FloorRenderer.SetVisibleFloors(refreshHeight, true);
 			}
-
-			*/
-			
 		}
 		
 	}
