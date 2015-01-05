@@ -38,6 +38,11 @@ public static partial class InstanceManager {
 			var transform = newObject.transform;
 			var stack = newObject.GetComponent<Stack> ();
 
+			//Set layer
+			string layerName = "Floor " + position.z.ToString();
+			Debug.Log (layerName + " " + LayerMask.NameToLayer(layerName));
+			newObject.layer = LayerMask.NameToLayer(layerName);
+
 			transform.position = position;
 			transform.Rotate (Config.DEFAULT_ROTATION);
 			transform.parent = MapEditor.mapContainer.transform;

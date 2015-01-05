@@ -73,7 +73,8 @@ public class TileMovement : MonoBehaviour {
 			
 			start = current.RoundXY();
 			target = GetAdjustedPosition(start, direction);
-			
+
+			Debug.Log ("move");
 			hasTarget = true; 
 		}
 	}
@@ -112,6 +113,7 @@ public class TileMovement : MonoBehaviour {
 	void Walk(float distance)
 	{
 		transform.position = Vector3.MoveTowards(current, target, distance);
+		Debug.Log ("walking " + isMoving);
 	}
 	
 	void RoundCurrentPosition()
@@ -150,6 +152,25 @@ public class TileMovement : MonoBehaviour {
 			hasTarget = false;
 			RoundCurrentPosition();
 		}
+	}
+
+//Messages?
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		isMoving = false;
+		hasTarget = false;
+		transform.position = start;
+
+		Debug.Log ("collisions detected " + hasTarget + " " + isMoving);
+
+	}
+
+	void OnCollisionStay2D(Collision2D collision)
+	{
+		isMoving = false;
+		hasTarget = false;
+		transform.position = start;
 	}
 
 }

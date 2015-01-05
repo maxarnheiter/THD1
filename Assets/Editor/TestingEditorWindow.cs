@@ -20,6 +20,18 @@ public class TestingEditorWindow : EditorWindow {
 		if(GUILayout.Button ("Test", GUILayout.Width (100f))) {	
 			
 
+
+			GameObject o = new GameObject();
+
+			Vector3 v = new Vector3(0f, 0f,0f);
+
+			string blah = "Floor " + v.z.ToString();
+			//string blah2 = "Floor 0";
+
+			Debug.Log (blah);
+			o.layer = LayerMask.NameToLayer(blah);
+			//o.layer = LayerMask.NameToLayer(blah2);
+
 		}
 
 		
