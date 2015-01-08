@@ -40,7 +40,6 @@ public static partial class InstanceManager {
 
 			//Set layer
 			string layerName = "Floor " + position.z.ToString();
-			Debug.Log (layerName + " " + LayerMask.NameToLayer(layerName));
 			newObject.layer = LayerMask.NameToLayer(layerName);
 
 			transform.position = position;

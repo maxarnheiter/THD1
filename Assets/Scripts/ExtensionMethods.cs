@@ -56,5 +56,16 @@ public static class ExtensionMethods
 	{
 		return new Vector3(position.x - 1, position.y, position.z);
 	}
+	
+	
+	public static Vector3 FloorUp(this Vector3 position)
+	{
+		return new Vector3(position.x - 1, position.y + 1, position.z - 1f);
+	}
+	
+	public static Vector3 FloorDown(this Vector3 position)
+	{
+		return new Vector3(position.x + 1, position.y - 1, position.z + 1f);
+	}
 
 }

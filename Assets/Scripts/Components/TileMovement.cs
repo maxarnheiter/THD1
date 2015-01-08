@@ -27,6 +27,8 @@ public class TileMovement : MonoBehaviour {
 	
 	Vector3 target;
 	bool hasTarget;
+	
+	bool isLocked;
 
 	void Start () 
 	{
@@ -39,49 +41,64 @@ public class TileMovement : MonoBehaviour {
 
 	void FixedUpdate () 
 	{
+		
 		float step = speed * Time.deltaTime;
 		current = transform.position;
-
+		
 		if(current != last)
 			OnMoving();
 		else
 			OnStopped();
 		
-		
-		if(hasTarget)
 		if(current != target)
-		{
 			Walk(step);
-		}
-
+		
 		if (current == target) 
-		{
 			OnTargetReached();
-		}
 		
 		last = current;
-
 	}
 	
 //Public Controls
 
 	public void Move(Direction direction)
 	{
-		if(!isMoving)
+		if(!isLocked)
 		{
+			isLocked = true;
+			
 			OnDirectionChange(direction);
 			
 			start = current.RoundXY();
 			target = GetAdjustedPosition(start, direction);
 
-			Debug.Log ("move");
 			hasTarget = true; 
+			Debug.Log ("move command");
 		}
 	}
 
 	public void ChangeDirection(Direction direction)
 	{
+		Debug.Log ("direction changed");
 		OnDirectionChange(direction);
+	}
+	
+	public void Stop()
+	{
+		Debug.Log ("stopping");
+		hasTarget = false;
+	}
+	
+	public void Lock()
+	{
+		Debug.Log ("im now locked");
+		isLocked = true;
+	}
+	
+	public void Unlock()
+	{
+		Debug.Log ("im now unlocked");
+		isLocked = false;
 	}
 	
 //Private Controls
@@ -112,8 +129,11 @@ public class TileMovement : MonoBehaviour {
 	
 	void Walk(float distance)
 	{
-		transform.position = Vector3.MoveTowards(current, target, distance);
-		Debug.Log ("walking " + isMoving);
+		if(hasTarget)
+		{
+			Debug.Log ("walking");
+			transform.position = Vector3.MoveTowards(current, target, distance);
+		}
 	}
 	
 	void RoundCurrentPosition()
@@ -149,8 +169,21 @@ public class TileMovement : MonoBehaviour {
 	{
 		if(hasTarget)
 		{
+			Debug.Log ("target reached");
 			hasTarget = false;
+			isLocked = false;
 			RoundCurrentPosition();
+		}
+	}
+	
+	void OnCollision(Collision2D collision)
+	{
+		if(!collision.collider.isTrigger)
+		{
+			isLocked = false;
+			hasTarget = false;
+			transform.position = start;
+			Debug.Log ("ive collided with something");
 		}
 	}
 
@@ -158,19 +191,12 @@ public class TileMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		isMoving = false;
-		hasTarget = false;
-		transform.position = start;
-
-		Debug.Log ("collisions detected " + hasTarget + " " + isMoving);
-
+		OnCollision(collision);
 	}
 
 	void OnCollisionStay2D(Collision2D collision)
 	{
-		isMoving = false;
-		hasTarget = false;
-		transform.position = start;
+		OnCollision(collision);
 	}
 
 }

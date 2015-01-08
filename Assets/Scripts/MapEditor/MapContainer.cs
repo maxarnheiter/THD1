@@ -19,7 +19,6 @@ public class MapContainer : MonoBehaviour {
 	
 		if(InstanceManager.instances.Count == 0 && this.transform.childCount != 0) 
 		{
-			Debug.Log ("Desparity detected.");
 			InstanceManager.ImportFrom(this.gameObject);
 		}
 	}

@@ -45,7 +45,7 @@ public static class StackRenderer  {
 					obj.Value.spriteRenderer.sortingOrder = Config.CORNER_SORT_BASE + c_count;
 					c_count++;
 				break;
-				case 2: //thing
+				case 2: //thing or player
 					obj.Value.spriteRenderer.sortingOrder = Config.THING_SORT_BASE + t_count;
 					t_count++;
 				break;

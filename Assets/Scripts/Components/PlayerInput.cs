@@ -8,17 +8,40 @@ public class PlayerInput : MonoBehaviour {
 	bool receivedInput = false;
 	Direction directionChange;
 	PlayerInputChoice input;
+	
+	float minimumWaitTime = 0.3f;
+	float lastTime;
+	float elapsedTime;
 
 	void Start () 
 	{
 		tileMovement = gameObject.GetComponent<TileMovement>();
+		SetLastTime();
 	}
 
 	void Update () 
 	{
-		GetInput ();
-		ProcessInput ();
-		Reset ();
+		GetInput();
+		ProcessInput();
+		Reset();
+	}
+	
+	void SetElapsedTime()
+	{
+		elapsedTime = Time.realtimeSinceStartup - lastTime;
+	}
+	
+	bool CheckTimeElaped()
+	{
+		if(elapsedTime >= minimumWaitTime)
+			return true;
+		
+		return false;
+	}
+	
+	void SetLastTime()
+	{
+		lastTime = Time.realtimeSinceStartup;
 	}
 
 	void GetInput()
@@ -62,9 +85,16 @@ public class PlayerInput : MonoBehaviour {
 
 	void SetInputState(Direction newDirection, PlayerInputChoice choice)
 	{
-		directionChange = newDirection;
-		receivedInput = true;
-		input = choice;
+		SetElapsedTime();
+		
+		if(CheckTimeElaped())
+		{
+			directionChange = newDirection;
+			receivedInput = true;
+			input = choice;
+			
+			SetLastTime();
+		}
 	}
 
 	void ProcessInput()

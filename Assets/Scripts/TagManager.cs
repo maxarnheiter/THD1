@@ -37,9 +37,15 @@ public static class TagManager  {
 						log = true;
 					}
 				}
-				if(path.Contains("/Things/") || path.Contains("/Player/")) {
+				if(path.Contains("/Things/")) {
 					if(gameObj.tag != "thing") {
 						gameObj.tag = "thing";
+						log = true;
+					}
+				}
+				if(path.Contains("/Player/")) {
+					if(gameObj.tag != "player") {
+						gameObj.tag = "player";
 						log = true;
 					}
 				}
@@ -60,6 +66,9 @@ public static class TagManager  {
 			return 1;
 			break;
 		case "thing":
+			return 2;
+			break;
+		case "player":
 			return 2;
 			break;
 		default:
