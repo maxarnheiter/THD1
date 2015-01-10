@@ -4,10 +4,16 @@ using System.Collections;
 public class Stairs : MonoBehaviour {
 
 	public Direction direction;
+	public bool isDown;
 
 	void Start () 
 	{
-	
+		if(this.isDown)
+		{
+			Debug.Log ("im down");
+			var renderer = this.gameObject.GetComponent<SpriteRenderer>();
+			renderer.sprite = null;
+		}
 	}
 	
 	void Update () 
@@ -43,7 +49,10 @@ public class Stairs : MonoBehaviour {
 				break;
 			}
 			
-			targetPosition = targetPosition.FloorUp();
+			if(isDown)
+				targetPosition = targetPosition.FloorDown();
+			else
+				targetPosition = targetPosition.FloorUp();
 			
 			obj.layer = LayerMask.NameToLayer("Floor " + targetPosition.z.ToString());
 			

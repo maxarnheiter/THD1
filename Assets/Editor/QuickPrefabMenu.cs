@@ -61,6 +61,8 @@ public class QuickPrefabMenu  {
 		var renderer = obj.AddComponent<SpriteRenderer>();
 		renderer.sprite = sprite;
 		obj.AddComponent<Stack>();
+		var prefab = obj.AddComponent<Prefab>();
+		prefab.id = int.Parse(name);
 
 		return obj;
 	}

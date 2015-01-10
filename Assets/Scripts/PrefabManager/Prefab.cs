@@ -15,6 +15,8 @@ public class Prefab : MonoBehaviour {
 	public bool isPrimary;
 	public bool isAlt;
 	
+	public Prefab()
+	{}
 	
 	public PrefabType prefabType = PrefabType.None;
 	

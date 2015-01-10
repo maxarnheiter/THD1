@@ -29,7 +29,7 @@ public static partial class PrefabManager
 			rawPrefabs.Add ((rawObject as GameObject).GetComponent<Prefab>());
 
 		foreach (var prefab in rawPrefabs) {
-
+			
 			if(!prefabs.ContainsKey(prefab.id)) {
 				prefab.Check ();
 				prefabs.Add(prefab.id, prefab);
