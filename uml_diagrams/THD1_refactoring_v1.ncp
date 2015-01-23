@@ -231,7 +231,7 @@
       <Entity type="Class">
         <Name>Config</Name>
         <Access>Public</Access>
-        <Location left="678" top="1043" />
+        <Location left="1519" top="1174" />
         <Size width="211" height="162" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public Vector3 DEFAULT_ROTATION { get; set; }</Member>
@@ -277,50 +277,35 @@
       <Entity type="Class">
         <Name>PrefabManager</Name>
         <Access>Public</Access>
-        <Location left="356" top="816" />
-        <Size width="162" height="417" />
+        <Location left="400" top="1043" />
+        <Size width="162" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public static Prefab current { get; set; }</Member>
-        <Member type="Method">public static Prefab GetPrefab()</Member>
-        <Member type="Method">public static void Reload()</Member>
-        <Member type="Method">public static void Clear()</Member>
-        <Member type="Method">public static void Load()</Member>
-        <Member type="Method">private static Dictionary&lt;int, string&gt; GetPrefabPaths()</Member>
-        <Member type="Method">private static Dictionary&lt;int, Object&gt; GetPrefabObjects()</Member>
-        <Member type="Method">public static Dictionary&lt;int, Texture2D&gt; GetPrefabTerxtures()</Member>
-        <Member type="Property">public static PrefabType prefabType { get; set; }</Member>
-        <Member type="Property">public static bool filterByCategory { get; set; }</Member>
         <Member type="Property">public static PrefabCategory prefabCategory { get; set; }</Member>
-        <Member type="Property">public static bool filterByColor { get; set; }</Member>
+        <Member type="Property">public static PrefabCollection prefabCollection { get; set; }</Member>
         <Member type="Property">public static PrefabColor prefabColor { get; set; }</Member>
-        <Member type="Property">public static Dictionary&lt;int, Prefab&gt; prefabs { get; set; }</Member>
-        <Member type="Property">public static int count { get; set; }</Member>
-        <Member type="Property">public static int nextId { get; set; }</Member>
-        <Member type="Property">public static bool hasPrefabs { get; set; }</Member>
-        <Member type="Method">public static void OnGUI()</Member>
-        <Member type="Method">public static void PrintSetId()</Member>
-        <Member type="Method">private static bool PrefabPassesFilter()</Member>
+        <Member type="Property">public static PrefabType prefabType { get; set; }</Member>
+        <Member type="Method">public static int GetNextPrefabId()</Member>
+        <Member type="Method">public static void Load()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Prefab</Name>
         <Access>Public</Access>
-        <Location left="139" top="928" />
+        <Location left="81" top="1453" />
         <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public int id { get; set; }</Member>
         <Member type="Property">public int setId { get; set; }</Member>
-        <Member type="Property">public Texture2D texture { get; set; }</Member>
         <Member type="Property">public int width { get; set; }</Member>
         <Member type="Property">public int height { get; set; }</Member>
         <Member type="Property">public bool isPrimary { get; set; }</Member>
         <Member type="Property">public bool isAlt { get; set; }</Member>
-        <Member type="Method">public PrefabType prefabType()</Member>
-        <Member type="Method">public PrefabCategory prefabCategory()</Member>
-        <Member type="Method">public PrefabColor prefabColor()</Member>
-        <Member type="Method">public void Check()</Member>
-        <Member type="Method">private void SetTexture()</Member>
-        <Member type="Method">private void CheckPrefabType()</Member>
+        <Member type="Method">public void OnLoad()</Member>
+        <Member type="Property">public string spriteName { get; set; }</Member>
+        <Member type="Property">public PrefabType prefabType { get; set; }</Member>
+        <Member type="Property">public PrefabCategory prefabCategory { get; set; }</Member>
+        <Member type="Property">public PrefabColor prefabColor { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -336,18 +321,20 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>PrefabChangeDetector</Name>
+        <Name>AssetChangeDetector</Name>
         <Access>Public</Access>
-        <Location left="728" top="840" />
-        <Size width="162" height="111" />
+        <Location left="372" top="858" />
+        <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void OnPostprocessAllAssets()</Member>
+        <Member type="Method">public static void OnPostprocessAllAssets()</Member>
+        <Member type="Method">public static void Enable()</Member>
+        <Member type="Method">public static void Disable()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>DebugExtensions</Name>
         <Access>Public</Access>
-        <Location left="914" top="1043" />
+        <Location left="1519" top="1355" />
         <Size width="162" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public static void DrawX()</Member>
@@ -397,11 +384,49 @@
         <Member type="Method">public static int TagToInt()</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Class">
+        <Name>PrefabCollection</Name>
+        <Access>Public</Access>
+        <Location left="372" top="1344" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Dictionary&lt;string, Texture2D&gt; _spriteTextures</Member>
+        <Member type="Field">private Dictionary&lt;int, Prefab&gt; _prefabs</Member>
+        <Member type="Property">public Dictionary&lt;string, Texture2D&gt; spriteTextures { get; set; }</Member>
+        <Member type="Property">public Dictionary&lt;int, Prefab&gt; prefabs { get; set; }</Member>
+        <Member type="Method">public Prefab GetPrefab()</Member>
+        <Member type="Method">public Texture2D GetTexture()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PrefabLoader</Name>
+        <Access>Public</Access>
+        <Location left="19" top="929" />
+        <Size width="312" height="134" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static PrefabCollection GetPrefabCollection()</Member>
+        <Member type="Method">private static Dictionary&lt;int, Prefab&gt; LoadPrefabs()</Member>
+        <Member type="Method">private static Dictionary&lt;string, Texture2D&gt; LoadSpriteTextures()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PrefabViewer</Name>
+        <Access>Public</Access>
+        <Location left="819" top="1126" />
+        <Size width="200" height="202" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static Vector2 size</Member>
+        <Member type="Field">private static int buttonPadding = 12</Member>
+        <Member type="Method">public static void Display()</Member>
+        <Member type="Method">private static void DisplaySet()</Member>
+        <Member type="Method">private static void IsFiltered()</Member>
+        <Member type="Method">private static void DisplayPrefab()</Member>
+        <Member type="Method">private static void OnPrefabButtonPressed()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -416,8 +441,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -432,8 +455,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -448,8 +469,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -464,8 +483,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -480,8 +497,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -496,8 +511,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -512,8 +525,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -528,8 +539,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -544,8 +553,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -560,8 +567,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="9">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -576,8 +581,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="10" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -592,8 +595,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="10" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -608,8 +609,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="12">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -624,8 +623,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="13">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -640,8 +637,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="16" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -656,8 +651,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -672,8 +665,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="17">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -688,8 +679,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="17">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -704,8 +693,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="17">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -720,8 +707,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -736,8 +721,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -752,8 +735,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="18">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -761,15 +742,13 @@
           <Y>388</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>556</X>
-          <Y>893</Y>
+          <X>600</X>
+          <Y>1120</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -784,8 +763,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -800,8 +777,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -816,8 +791,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -832,8 +805,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -848,8 +819,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="18">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -857,15 +826,13 @@
           <Y>509</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>543</X>
-          <Y>909</Y>
+          <X>587</X>
+          <Y>1136</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -880,8 +847,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -896,8 +861,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -912,8 +875,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="13" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -928,8 +889,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="13" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -944,24 +903,20 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="21" second="18">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>703</X>
-          <Y>918</Y>
+          <X>580</X>
+          <Y>877</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>544</X>
-          <Y>929</Y>
+          <X>545</X>
+          <Y>1018</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="18" second="12">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -972,8 +927,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -987,25 +940,7 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="18" second="19">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>331</X>
-          <Y>1116</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>327</X>
-          <Y>956</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="4" second="11">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1020,8 +955,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="15" second="20">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1034,6 +967,82 @@
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="18" second="26">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>587</X>
+          <Y>1206</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>559</X>
+          <Y>1372</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="19" second="26">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>269</X>
+          <Y>1479</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>347</X>
+          <Y>1368</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="18" second="27">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>375</X>
+          <Y>1068</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>356</X>
+          <Y>1007</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="28" second="12">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>864</X>
+          <Y>1101</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>923</X>
+          <Y>135</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="28" second="18">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>587</X>
+          <Y>1070</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>

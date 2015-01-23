@@ -16,11 +16,7 @@ public static class PrefabManager
 	{ get { return _hasPrefabs; } }
 	
 	public static PrefabType prefabType = PrefabType.Any;
-	
-	public static bool filterByCategory;
 	public static PrefabCategory prefabCategory = PrefabCategory.Any;
-	
-	public static bool filterByColor;
 	public static PrefabColor prefabColor = PrefabColor.Any;
 	
 	static Prefab _current;

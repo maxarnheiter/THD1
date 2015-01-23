@@ -52,8 +52,7 @@ public static class PrefabViewer
 				DisplayPrefab(prefab);
 			}
 		}
-		GUILayout.EndHorizontal();
-	}
+		GUILayout.EndHorizontal();	}
 	
 	static bool IsFiltered(Prefab prefab)
 	{

@@ -25,7 +25,7 @@ public static class PrefabLoader
 		return new PrefabCollection(spriteTextures, prefabs);
 	}
 	
-	private static Dictionary<int, Prefab> LoadPrefabs()
+	static Dictionary<int, Prefab> LoadPrefabs()
 	{
 		var rawPrefabObjects = Resources.LoadAll("Prefabs/");
 		
@@ -55,7 +55,7 @@ public static class PrefabLoader
 		return prefabs;
 	}
 	
-	private static Dictionary<string, Texture2D> LoadSpriteTextures()
+	static Dictionary<string, Texture2D> LoadSpriteTextures()
 	{
 	
 		var rawSpriteTextures = Resources.LoadAll ("Sprites/");
