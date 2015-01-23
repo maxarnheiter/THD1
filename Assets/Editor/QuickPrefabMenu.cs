@@ -25,9 +25,15 @@ public class QuickPrefabMenu  {
 
 	static void processSelection(string tag) {
 
-		int nextId = PrefabManager.nextId;
+		if(!PrefabManager.hasPrefabs)
+		{
+			Debug.Log ("Could not process selection because there are no prefabs loaded");
+			return;
+		}
 
-		PrefabChangeDetector.enabled = false;
+		int nextId = PrefabManager.GetNextPrefabId();
+
+		AssetChangeDetector.Disable();
 		foreach (var obj in Selection.objects) {
 			var newObj = createStandardPrefab(nextId.ToString(), tag, obj as Sprite);
 
@@ -38,8 +44,8 @@ public class QuickPrefabMenu  {
 
 			nextId++;
 		}
-		PrefabManager.Reload ();
-		PrefabChangeDetector.enabled = true;
+		PrefabManager.Load ();
+		AssetChangeDetector.Enable();
 	}
 
 	static void saveToFolder(GameObject obj, string tag, string name) {

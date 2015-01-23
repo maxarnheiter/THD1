@@ -133,6 +133,7 @@ TextureImporter:
     21300256: things_1_127
     21300258: things_1_128
     21300260: things_1_129
+    21300262: things_1_130
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -152,7 +153,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
@@ -1473,6 +1474,16 @@ TextureImporter:
         height: 64
       alignment: 8
       pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: things_1_130
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

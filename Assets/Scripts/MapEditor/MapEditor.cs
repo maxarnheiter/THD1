@@ -132,7 +132,7 @@ public static class MapEditor
 			map = serializer.Deserialize(stream) as Map;
 		
 		foreach(var mapObject in map.data) {
-			Prefab prefab = PrefabManager.GetPrefab(mapObject.id);
+			Prefab prefab = PrefabManager.prefabCollection.GetPrefab(mapObject.id);
 			InstanceManager.Instantiate(prefab, new Vector3(mapObject.x, mapObject.y, mapObject.z));
 		}
 

@@ -1,8 +1,19 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public static class ExtensionMethods 
 {
+
+	public static Texture2D GetSpriteTexture(this Sprite sprite) 
+	{
+		var texture = new Texture2D ((int)sprite.rect.width, (int)sprite.rect.height);
+		
+		texture.SetPixels (sprite.texture.GetPixels ((int)sprite.rect.x, (int)sprite.rect.y, (int)sprite.rect.width, (int)sprite.rect.height));
+		texture.alphaIsTransparency = true;
+		texture.Apply ();
+		
+		return texture;
+	}
 
 	public static Vector3 RoundXY(this Vector3 position)
 	{

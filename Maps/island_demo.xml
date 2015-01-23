@@ -314,8 +314,14 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
       <x>7</x>
+      <y>21</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
       <y>21</y>
       <z>0</z>
     </MapObject>
@@ -404,20 +410,80 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
+      <x>0</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>2</x>
       <y>20</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>973</id>
+      <id>881</id>
+      <x>3</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>8</x>
       <y>20</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>964</id>
+      <id>881</id>
       <x>9</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>20</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
       <y>20</y>
       <z>0</z>
     </MapObject>
@@ -488,6 +554,102 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>2</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>3</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>19</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>14</x>
       <y>19</y>
@@ -530,6 +692,120 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>2</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>3</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>18</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>15</x>
       <y>18</y>
@@ -580,6 +856,126 @@
     <MapObject>
       <id>963</id>
       <x>-5</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>2</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>3</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>17</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
       <y>17</y>
       <z>0</z>
     </MapObject>
@@ -638,13 +1034,121 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>973</id>
+      <id>881</id>
       <x>-4</x>
       <y>16</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>964</id>
+      <id>881</id>
+      <x>-3</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>2</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>3</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>16</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>15</x>
       <y>16</y>
       <z>0</z>
@@ -704,6 +1208,108 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>2</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>15</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>16</x>
       <y>15</y>
@@ -758,6 +1364,96 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>14</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>17</x>
       <y>14</y>
@@ -806,6 +1502,90 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>13</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>17</x>
       <y>13</y>
@@ -842,6 +1622,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>1063</id>
       <x>4</x>
       <y>12</y>
@@ -860,7 +1676,43 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
+      <x>10</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>12</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>16</x>
       <y>12</y>
       <z>0</z>
@@ -908,6 +1760,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>1063</id>
       <x>4</x>
       <y>11</y>
@@ -922,6 +1810,48 @@
     <MapObject>
       <id>1063</id>
       <x>6</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
       <y>11</y>
       <z>0</z>
     </MapObject>
@@ -970,6 +1900,48 @@
     <MapObject>
       <id>963</id>
       <x>-6</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
       <y>10</y>
       <z>0</z>
     </MapObject>
@@ -994,6 +1966,48 @@
     <MapObject>
       <id>1063</id>
       <x>7</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>10</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
       <y>10</y>
       <z>0</z>
     </MapObject>
@@ -1036,6 +2050,48 @@
     <MapObject>
       <id>966</id>
       <x>-6</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
       <y>9</y>
       <z>0</z>
     </MapObject>
@@ -1094,6 +2150,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>9</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>17</x>
       <y>9</y>
@@ -1132,6 +2224,48 @@
     <MapObject>
       <id>963</id>
       <x>-6</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>0</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
       <y>8</y>
       <z>0</z>
     </MapObject>
@@ -1190,6 +2324,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>8</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>17</x>
       <y>8</y>
@@ -1228,6 +2398,36 @@
     <MapObject>
       <id>966</id>
       <x>-6</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-1</x>
       <y>7</y>
       <z>0</z>
     </MapObject>
@@ -1298,8 +2498,38 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>882</id>
       <x>12</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>7</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
       <y>7</y>
       <z>0</z>
     </MapObject>
@@ -1348,6 +2578,24 @@
     <MapObject>
       <id>963</id>
       <x>-6</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
       <y>6</y>
       <z>0</z>
     </MapObject>
@@ -1442,6 +2690,36 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>6</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>18</x>
       <y>6</y>
@@ -1486,6 +2764,24 @@
     <MapObject>
       <id>963</id>
       <x>-6</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
       <y>5</y>
       <z>0</z>
     </MapObject>
@@ -1580,6 +2876,36 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>18</x>
       <y>5</y>
@@ -1618,6 +2944,24 @@
     <MapObject>
       <id>963</id>
       <x>-6</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-5</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
       <y>4</y>
       <z>0</z>
     </MapObject>
@@ -1712,6 +3056,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>19</x>
       <y>4</y>
@@ -1750,6 +3130,18 @@
     <MapObject>
       <id>966</id>
       <x>-5</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
       <y>3</y>
       <z>0</z>
     </MapObject>
@@ -1844,6 +3236,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>19</x>
       <y>3</y>
@@ -1876,6 +3304,24 @@
     <MapObject>
       <id>966</id>
       <x>-5</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
       <y>2</y>
       <z>0</z>
     </MapObject>
@@ -1964,6 +3410,42 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>964</id>
       <x>19</x>
       <y>2</y>
@@ -1996,6 +3478,24 @@
     <MapObject>
       <id>963</id>
       <x>-5</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
       <y>1</y>
       <z>0</z>
     </MapObject>
@@ -2078,6 +3578,48 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>19</x>
       <y>1</y>
@@ -2126,8 +3668,20 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
       <x>-4</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
       <y>0</y>
       <z>0</z>
     </MapObject>
@@ -2198,6 +3752,66 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>19</x>
+      <y>0</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>20</x>
       <y>0</y>
@@ -2224,6 +3838,24 @@
     <MapObject>
       <id>963</id>
       <x>-5</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
       <y>-1</y>
       <z>0</z>
     </MapObject>
@@ -2288,6 +3920,72 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>19</x>
+      <y>-1</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>20</x>
       <y>-1</y>
@@ -2314,6 +4012,24 @@
     <MapObject>
       <id>963</id>
       <x>-5</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-4</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
       <y>-2</y>
       <z>0</z>
     </MapObject>
@@ -2372,6 +4088,78 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>19</x>
+      <y>-2</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>963</id>
       <x>20</x>
       <y>-2</y>
@@ -2414,6 +4202,18 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>881</id>
+      <x>-3</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>-2</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>882</id>
       <x>-1</x>
       <y>-3</y>
@@ -2440,6 +4240,96 @@
     <MapObject>
       <id>882</id>
       <x>3</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
+      <y>-3</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>18</x>
       <y>-3</y>
       <z>0</z>
     </MapObject>
@@ -2492,8 +4382,116 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
+      <x>-1</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>0</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>1</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>2</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>3</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>4</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>5</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>6</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>7</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>8</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>9</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>10</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>11</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>13</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>16</x>
+      <y>-4</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>17</x>
       <y>-4</y>
       <z>0</z>
     </MapObject>
@@ -2558,19 +4556,37 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
       <x>1</x>
       <y>-5</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
+      <x>2</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>3</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>4</x>
       <y>-5</y>
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
+      <x>5</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>6</x>
       <y>-5</y>
       <z>0</z>
@@ -2600,8 +4616,32 @@
       <z>0</z>
     </MapObject>
     <MapObject>
-      <id>963</id>
+      <id>881</id>
+      <x>11</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>12</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
       <x>13</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>14</x>
+      <y>-5</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
+      <id>881</id>
+      <x>15</x>
       <y>-5</y>
       <z>0</z>
     </MapObject>
@@ -3476,6 +5516,12 @@
       <z>0</z>
     </MapObject>
     <MapObject>
+      <id>1256</id>
+      <x>5</x>
+      <y>11</y>
+      <z>0</z>
+    </MapObject>
+    <MapObject>
       <id>1170</id>
       <x>7</x>
       <y>11</y>
@@ -4034,8 +6080,26 @@
       <z>-1</z>
     </MapObject>
     <MapObject>
+      <id>1292</id>
+      <x>4</x>
+      <y>15</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
+      <id>1287</id>
+      <x>2</x>
+      <y>14</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
       <id>1272</id>
       <x>7</x>
+      <y>14</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
+      <id>1290</id>
+      <x>8</x>
       <y>14</y>
       <z>-1</z>
     </MapObject>
@@ -4100,6 +6164,12 @@
       <z>-1</z>
     </MapObject>
     <MapObject>
+      <id>1294</id>
+      <x>1</x>
+      <y>11</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
       <id>1212</id>
       <x>2</x>
       <y>11</y>
@@ -4118,8 +6188,26 @@
       <z>-1</z>
     </MapObject>
     <MapObject>
+      <id>1288</id>
+      <x>5</x>
+      <y>11</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
+      <id>1289</id>
+      <x>6</x>
+      <y>11</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
       <id>1270</id>
       <x>7</x>
+      <y>11</y>
+      <z>-1</z>
+    </MapObject>
+    <MapObject>
+      <id>1293</id>
+      <x>8</x>
       <y>11</y>
       <z>-1</z>
     </MapObject>
@@ -4137,6 +6225,12 @@
     </MapObject>
     <MapObject>
       <id>901</id>
+      <x>1</x>
+      <y>13</y>
+      <z>-2</z>
+    </MapObject>
+    <MapObject>
+      <id>1136</id>
       <x>1</x>
       <y>13</y>
       <z>-2</z>

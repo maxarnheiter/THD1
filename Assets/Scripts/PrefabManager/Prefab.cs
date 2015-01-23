@@ -8,68 +8,30 @@ public class Prefab : MonoBehaviour {
 	public int id;
 	public int setId;
 
-	public Texture2D texture;
+	public string spriteName;
 	public int width;
 	public int height;
 
 	public bool isPrimary;
 	public bool isAlt;
 	
-	public Prefab()
-	{}
-	
 	public PrefabType prefabType = PrefabType.None;
-	
 	public PrefabCategory prefabCategory = PrefabCategory.None;
-	
 	public PrefabColor prefabColor = PrefabColor.None;
 
-	public void Check() {
-
-		if (id != int.Parse (this.gameObject.name))
-			id = int.Parse (this.gameObject.name);
-
-		if (texture == null) 
-			SetTexture ();
-
-		if (width != texture.width)
-			width = texture.width;
-
-		if (height != texture.height)
-			height = texture.height;
-		
-		CheckPrefabType();
-
-	}
-
-	void SetTexture() {
-
-		var renderer = this.GetComponent<SpriteRenderer>();
-
-		this.texture = new Texture2D ((int)renderer.sprite.rect.width, (int)renderer.sprite.rect.height);
-	
-		this.texture.SetPixels (renderer.sprite.texture.GetPixels ((int)renderer.sprite.rect.x, (int)renderer.sprite.rect.y, (int)renderer.sprite.rect.width, (int)renderer.sprite.rect.height));
-
-		this.texture.Apply ();
-	}
-	
-	void CheckPrefabType()
+	public void OnLoad()
 	{
-
-		if(this.gameObject.tag == "ground tile" && this.prefabType != PrefabType.Ground)
-			this.prefabType = PrefabType.Ground;
+		var renderer = this.gameObject.GetComponent<SpriteRenderer>();
+		
+		if(renderer == null)
+			return;
 			
-		if(this.gameObject.tag == "ground corner" && this.prefabType != PrefabType.Corner)
-			this.prefabType = PrefabType.Corner;
-			
-		if(this.gameObject.tag == "thing" && this.prefabType != PrefabType.Thing)
-			this.prefabType = PrefabType.Thing;
-			
-		if (this.gameObject.tag == "player" && this.prefabType != PrefabType.Player)
-			this.prefabType = PrefabType.Player;
-
+		if(renderer.sprite == null)
+			return;
+		
+		this.spriteName = renderer.sprite.name;
+		this.width = (int)renderer.sprite.rect.width;
+		this.height = (int)renderer.sprite.rect.height;
 	}
-
-	 
 	
 }

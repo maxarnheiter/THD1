@@ -3,7 +3,6 @@ using System.Collections;
 
 public static class DebugExtensions
 {
-
 	public static void DrawX(Vector3 position, float width)
 	{
 		var start1 = new Vector3(position.x - width, position.y + width, position.z);

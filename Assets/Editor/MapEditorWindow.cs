@@ -83,7 +83,7 @@ public class MapEditorWindow : EditorWindow
 
 		EditorGUILayout.BeginVertical ();
 		PrefabFilterGUI ();
-		PrefabManager.OnGUI (800);
+			PrefabViewer.Display(800);
 		EditorGUILayout.EndVertical ();
 
 		EditorGUILayout.BeginVertical ();
@@ -99,10 +99,22 @@ public class MapEditorWindow : EditorWindow
 
 		MapOptionsGUI ();
 		MapStatisticsGUI();
+		PrefabLoadGUI();
 		ActionGUI ();
 		FloorGUI();
 		PrefabGUI();
 		SetIDGUI();
+	}
+	
+	void PrefabLoadGUI()
+	{
+		EditorGUILayout.BeginHorizontal();
+		
+		if(GUILayout.Button ((PrefabManager.hasPrefabs ? "Reload Prefabs" : "Load Prefabs"), GUILayout.Width (100f)))
+			PrefabManager.Load();
+			
+			
+		EditorGUILayout.EndHorizontal();
 	}
 
 	void PrefabFilterGUI() {
@@ -223,21 +235,26 @@ public class MapEditorWindow : EditorWindow
 	
 		EditorGUILayout.BeginVertical();
 	
+		/*
 		GUILayout.Label ("Current prefab id: " + PrefabManager.current);
 
 		if (PrefabManager.current == null)
 						return;
-		GUILayout.Button (	PrefabManager.current.texture, 
+		GUILayout.Button (	PrefabManager.current.lastTexture, 
 		                  GUILayout.Width (PrefabManager.current.width), 
 		                  GUILayout.Height(PrefabManager.current.height));
+		                  */
 		                  
 		EditorGUILayout.EndVertical();
 	}
 
 	void SetIDGUI() {
 
-		if (PrefabManager.prefabs.Count > 0)
-			GUILayout.Label ("Next SID: " + (PrefabManager.prefabs.Max (p => p.Value.setId + 1)));
+		if(!PrefabManager.hasPrefabs)
+			return;
+		
+		if (PrefabManager.prefabCollection.prefabs.Count > 0)
+			GUILayout.Label ("Next SID: " + (PrefabManager.prefabCollection.prefabs.Max (p => p.Value.setId + 1)));
 
 		GUILayout.Label ("Next click SID: " + MapEditor.nextSetId.ToString());
 
@@ -250,7 +267,7 @@ public class MapEditorWindow : EditorWindow
 			MapEditor.nextSetId--;
 
 		if (GUILayout.Button ("*", GUILayout.Width (40f)))
-			MapEditor.nextSetId = PrefabManager.prefabs.Max (p => p.Value.setId) + 1;
+			MapEditor.nextSetId = PrefabManager.prefabCollection.prefabs.Max (p => p.Value.setId) + 1;
 
 		EditorGUILayout.EndHorizontal ();
 
